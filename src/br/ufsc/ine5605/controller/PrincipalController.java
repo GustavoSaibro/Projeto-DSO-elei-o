@@ -33,7 +33,8 @@ public class PrincipalController {
 	}
 	
 	public void iniciarPartido(){
-		System.out.println("Iniciou partido");
+		controladorPartido = new ControladorPartido();
+                controladorPartido.iniciaTelaPartido();
 	}
 	public void iniciarUrna(){
 		System.out.println("Iniciou urna");
