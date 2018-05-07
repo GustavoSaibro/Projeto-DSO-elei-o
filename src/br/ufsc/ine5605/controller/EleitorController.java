@@ -2,6 +2,7 @@ package br.ufsc.ine5605.controller;
 
 import br.ufsc.ine5605.model.Cidade;
 import br.ufsc.ine5605.model.Eleitor;
+import br.ufsc.ine5605.view.TelaEleitor;
 import java.util.ArrayList;
 
 public class EleitorController {
@@ -12,7 +13,7 @@ private TelaEleitor telaEleitor;
 
 public void iniciaTelaEleitor(){
     this.telaEleitor = telaEleitor;
-    telaEleitor.start();
+    //telaEleitor.start();
 }
 
 public void cadastrarEleitor(int zonaEleitoral,Cidade nomeCidade,int titulo){
