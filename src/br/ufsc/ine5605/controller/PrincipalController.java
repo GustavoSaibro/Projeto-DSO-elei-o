@@ -1,6 +1,6 @@
-package br.ufsc.ine5602.controller;
+package br.ufsc.ine5605.controller;
 
-import br.ufsc.ine5602.view.TelaPrincipal;
+import br.ufsc.ine5605.view.TelaPrincipal;
 
 public class PrincipalController {
 	private ControladorPartido controladorPartido;
@@ -44,7 +44,7 @@ public class PrincipalController {
 		
 	}
 	public void iniciarVotacao(){
-		System.out.println("iniciou votação");
+		System.out.println("iniciou votaï¿½ï¿½o");
 		
 	}
 

@@ -1,8 +1,8 @@
-package br.ufsc.ine5602.view;
+package br.ufsc.ine5605.view;
 
 import java.util.Scanner;
 
-import br.ufsc.ine5602.controller.PrincipalController;
+import br.ufsc.ine5605.controller.PrincipalController;
 
 public class TelaPrincipal {
 	private Scanner teclado;
@@ -11,15 +11,15 @@ public class TelaPrincipal {
 	public void start(){
 		teclado = new Scanner(System.in);
 		int opcao = 0;
-		System.out.println("--------- OLÁ, SEJA BEM VINDO ---------");
-		System.out.println("-------O que você deseja fazer?--------");
+		System.out.println("--------- OLï¿½, SEJA BEM VINDO ---------");
+		System.out.println("-------O que vocï¿½ deseja fazer?--------");
 		System.out.println("");
 		System.out.println("---------------------------------------");
 		System.out.println("");
-		System.out.println("-----Tecle 1 - Para Opções da urna-----");
-		System.out.println("--Tecle 2 - Para Opções de candidato---");
-		System.out.println("---Tecle 3 - Para Opções de Partido----");
-		System.out.println("--------Tecle 4 - Para votação---------");
+		System.out.println("-----Tecle 1 - Para Opï¿½ï¿½es da urna-----");
+		System.out.println("--Tecle 2 - Para Opï¿½ï¿½es de candidato---");
+		System.out.println("---Tecle 3 - Para Opï¿½ï¿½es de Partido----");
+		System.out.println("--------Tecle 4 - Para votaï¿½ï¿½o---------");
 		opcao = teclado.nextInt();
 		
 		switch (opcao) {

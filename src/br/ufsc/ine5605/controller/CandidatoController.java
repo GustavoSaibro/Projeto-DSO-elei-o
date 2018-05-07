@@ -1,4 +1,4 @@
-package br.ufsc.ine5602.controller;
+package br.ufsc.ine5605.controller;
 
 public class CandidatoController {
 
