@@ -7,11 +7,15 @@ import br.ufsc.ine5605.controller.PrincipalController;
 public class TelaPrincipal {
 	private Scanner teclado;
 	private PrincipalController principalController;
+        
+        public TelaPrincipal(PrincipalController principalController){
+            this.principalController = principalController;
+        }
 	
 	public void start(){
 		teclado = new Scanner(System.in);
 		int opcao = 0;
-		System.out.println("--------- OL�, SEJA BEM VINDO ---------");
+		System.out.println("--------- OLÁ, SEJA BEM VINDO ---------");
 		System.out.println("-------O que voc� deseja fazer?--------");
 		System.out.println("");
 		System.out.println("---------------------------------------");
@@ -24,19 +28,15 @@ public class TelaPrincipal {
 		
 		switch (opcao) {
 		case 1:
-			principalController = new PrincipalController();
 			principalController.iniciarUrna();
 			break;
 		case 2:
-			principalController = new PrincipalController();
 			principalController.iniciarCandidato();
 			break;
 		case 3:
-			principalController = new PrincipalController();
 			principalController.iniciarPartido();
 			break;
 		case 4:
-			principalController = new PrincipalController();
 			principalController.iniciarVotacao();
 		default:
 			break;
