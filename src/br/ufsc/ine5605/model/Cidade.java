@@ -9,7 +9,7 @@ package br.ufsc.ine5605.model;
  *
  * @author Gustavo
  */
-class Cidade {
+public class Cidade {
     
     private String nome;
 

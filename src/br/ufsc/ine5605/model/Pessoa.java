@@ -14,6 +14,14 @@ public abstract class Pessoa {
     private int zonaEleitoral;
     private Cidade cidade;
     private int tituloEleitor;
+
+    public Pessoa(int zonaEleitoral, Cidade cidade, int tituloEleitor) {
+        this.zonaEleitoral = zonaEleitoral;
+        this.cidade = cidade;
+        this.tituloEleitor = tituloEleitor;
+    }
+    
+    
     
 	public int getZonaEleitoral() {
 		return zonaEleitoral;
@@ -33,6 +41,10 @@ public abstract class Pessoa {
 	public void setTituloEleitor(int tituloEleitor) {
 		this.tituloEleitor = tituloEleitor;
 	}
+
+    Pessoa() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     

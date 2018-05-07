@@ -9,6 +9,12 @@ package br.ufsc.ine5605.model;
  *
  * @author Gustavo
  */
-class Eleitor extends Pessoa{
+public class Eleitor extends Pessoa{
+
+    public Eleitor(int zonaEleitoral, Cidade cidade, int tituloEleitor) {
+        super(zonaEleitoral, cidade, tituloEleitor);
+    }
+   
+    
     
 }
