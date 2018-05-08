@@ -11,17 +11,27 @@ package br.ufsc.ine5605.model;
  */
 public abstract class Pessoa {
     
+    private String nomePessoa;
     private int zonaEleitoral;
     private Cidade cidade;
     private int tituloEleitor;
 
-    public Pessoa(int zonaEleitoral, Cidade cidade, int tituloEleitor) {
+    public Pessoa(String nomePessoa, int zonaEleitoral, Cidade cidade, int tituloEleitor) {
+        this.nomePessoa = nomePessoa;
         this.zonaEleitoral = zonaEleitoral;
         this.cidade = cidade;
         this.tituloEleitor = tituloEleitor;
     }
+
+    public String getNomePessoa() {
+        return nomePessoa;
+    }
+
+    public void setNomePessoa(String nomePessoa) {
+        this.nomePessoa = nomePessoa;
+    }
     
-    
+        
     
 	public int getZonaEleitoral() {
 		return zonaEleitoral;

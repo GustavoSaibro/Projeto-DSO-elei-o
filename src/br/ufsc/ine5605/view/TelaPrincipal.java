@@ -16,14 +16,16 @@ public class TelaPrincipal {
 		teclado = new Scanner(System.in);
 		int opcao = 0;
 		System.out.println("--------- OLÁ, SEJA BEM VINDO ---------");
-		System.out.println("-------O que voc� deseja fazer?--------");
+		System.out.println("-------O que você deseja fazer?--------");
 		System.out.println("");
 		System.out.println("---------------------------------------");
 		System.out.println("");
-		System.out.println("-----Tecle 1 - Para Op��es da urna-----");
-		System.out.println("--Tecle 2 - Para Op��es de candidato---");
-		System.out.println("---Tecle 3 - Para Op��es de Partido----");
-		System.out.println("--------Tecle 4 - Para vota��o---------");
+		System.out.println("-----Tecle 1 - Para Opções da urna-----");
+		System.out.println("--Tecle 2 - Para Opções de candidato---");
+		System.out.println("---Tecle 3 - Para Opções de Partido----");
+		System.out.println("--------Tecle 4 - Para votação---------");
+		System.out.println("--------Tecle 5 - Para eleitor---------");
+                
 		opcao = teclado.nextInt();
 		
 		switch (opcao) {
@@ -38,6 +40,9 @@ public class TelaPrincipal {
 			break;
 		case 4:
 			principalController.iniciarVotacao();
+                case 5:
+                        principalController.iniciarEleitor();
+                        break;
 		default:
 			break;
 		}

@@ -36,6 +36,10 @@ public class PrincipalController {
 		controladorPartido = new ControladorPartido();
                 controladorPartido.iniciaTelaPartido();
 	}
+        public void iniciarEleitor(){
+            eleitorController = new EleitorController();
+            eleitorController.iniciaTelaEleitor();
+        }
 	public void iniciarUrna(){
 		System.out.println("Iniciou urna");
 		

@@ -11,8 +11,8 @@ package br.ufsc.ine5605.model;
  */
 public class Eleitor extends Pessoa{
 
-    public Eleitor(int zonaEleitoral, Cidade cidade, int tituloEleitor) {
-        super(zonaEleitoral, cidade, tituloEleitor);
+    public Eleitor(String nomePessoa, int zonaEleitoral, Cidade cidade, int tituloEleitor) {
+        super(nomePessoa, zonaEleitoral, cidade, tituloEleitor);
     }
    
     

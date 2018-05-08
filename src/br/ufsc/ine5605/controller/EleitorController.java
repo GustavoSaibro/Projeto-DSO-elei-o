@@ -2,6 +2,7 @@ package br.ufsc.ine5605.controller;
 
 import br.ufsc.ine5605.model.Cidade;
 import br.ufsc.ine5605.model.Eleitor;
+import br.ufsc.ine5605.model.Partido;
 import br.ufsc.ine5605.view.TelaEleitor;
 import java.util.ArrayList;
 
@@ -11,13 +12,23 @@ private Eleitor eleitor;
 private ArrayList<Eleitor> eleitores;
 private TelaEleitor telaEleitor;
 
-public void iniciaTelaEleitor(){
-    this.telaEleitor = telaEleitor;
-    //telaEleitor.opcoesEleitor();
+public EleitorController(){
+    telaEleitor = new TelaEleitor(this);
+    eleitores = new ArrayList<>();
+
 }
 
-public void cadastrarEleitor(int zonaEleitoral,Cidade nomeCidade,int titulo){
-     eleitor = new Eleitor(zonaEleitoral,nomeCidade,titulo);
+public void iniciaTelaEleitor(){
+
+    telaEleitor.opcoesEleitor();
+}
+
+public void cadastrarEleitor(String nomeEleitor, int zonaEleitoral,String nomeCidade,int titulo){
+    // CRIA UMA NOVA CIDADE
+    Cidade c = new Cidade();
+    c.setNome(nomeCidade);
+    
+    eleitor = new Eleitor(nomeEleitor, zonaEleitoral, c, titulo);
      
      /*
      aqui faço uma isntancia de eleitor e percorro o array verificando se 
@@ -30,24 +41,28 @@ public void cadastrarEleitor(int zonaEleitoral,Cidade nomeCidade,int titulo){
              break;
          }
      }
+     ListaEleitores();
 }
 
-public ArrayList ListaEleitores(){
-    return eleitores;
+public void ListaEleitores(){
+    telaEleitor.listarEleitor(eleitores);
 }
 
 public void excluirEleitorByTitulo(int titulo){
-    
-    /*
-    aqui verifico na lista de eleitores o tituo e se for igual ao passo de parametro eu excluo.
-    
-    */
-    
-    
-    for(Eleitor e : eleitores){
-        if(e != null && e.getTituloEleitor() == titulo){
-            e = null;
-        }
+    if(findEleitorByTitulo(titulo).equals(null)){
+        
+    }else{
+        eleitores.remove(findEleitorByTitulo(titulo));
     }
+    ListaEleitores();
 }
+
+private Eleitor findEleitorByTitulo(int titulo) {
+        for (int i = 0; i < eleitores.size(); i++) {
+            if (eleitores.get(i).getTituloEleitor() == titulo) {
+                eleitor = eleitores.get(i);
+            }
+        }
+        return eleitor;
+    }
 }

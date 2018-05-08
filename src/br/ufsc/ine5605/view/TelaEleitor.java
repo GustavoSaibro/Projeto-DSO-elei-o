@@ -6,6 +6,8 @@
 package br.ufsc.ine5605.view;
 
 import br.ufsc.ine5605.controller.EleitorController;
+import br.ufsc.ine5605.model.Eleitor;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -20,8 +22,8 @@ public class TelaEleitor {
     public TelaEleitor() {
     }
 
-    public TelaEleitor(Scanner teclado) {
-        this.teclado = teclado;
+    public TelaEleitor(EleitorController eleitorController) {
+        this.eleitorController = eleitorController;
     }
 
     public void opcoesEleitor() {
@@ -39,18 +41,50 @@ public class TelaEleitor {
 
         switch (opcao) {
 		case 1:
-			//eleitorController.cadastrarEleitor();
+			cadastrarEleitor();
 			break;
 		case 2:
-			//eleitorController.excluirEleitorByTitulo();
+			ExcluirEleitorByTitulo();
 			break;
 		case 3:
-			//eleitorController.listarEleitores();
+			eleitorController.ListaEleitores();
 			break;
                 default:
 			break;
 		}
 
+    }
+
+    private void cadastrarEleitor() {
+        String nomeEleitor = "";
+        int zonaEleitoral = 0;
+        String nomeCidade = "";
+        int titulo = 0;
+        System.out.println("Por favor, digite o nome do eleitor");
+        nomeEleitor = teclado.next();
+        System.out.println("Por favor, digite o número da zona eleitoral");
+        zonaEleitoral = teclado.nextInt();
+        System.out.println("Por favor, digite o nome da cidade do eleitor");
+        nomeCidade = teclado.next();
+        System.out.println("Por favor, digite o título do eleitor");
+        titulo = teclado.nextInt();
+        
+        eleitorController.cadastrarEleitor(nomeEleitor, zonaEleitoral, nomeCidade, titulo);
+    }
+
+    private void ExcluirEleitorByTitulo() {
+        int titulo = 0;
+        System.out.println("Por favor, digite o título do eleitor que desejas excluir");
+        titulo = teclado.nextInt();
+        eleitorController.excluirEleitorByTitulo(titulo);
+    }
+
+    public void listarEleitor(ArrayList<Eleitor> eleitores) {
+        for (int i = 0; i < eleitores.size(); i++) {
+            System.out.println(eleitores.get(i).getNomePessoa() + 
+                    eleitores.get(i).getCidade().getNome() + eleitores.get(i).getTituloEleitor());
+        }
+        opcoesEleitor();
     }
 
 }
