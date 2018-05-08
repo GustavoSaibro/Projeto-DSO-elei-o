@@ -13,7 +13,7 @@ public class TelaPrincipal {
         this.principalController = principalController;
     }
 
-    public void start() {
+    public void iniciarTelaPrincipal() {
         teclado = new Scanner(System.in);
         int opcao = 0;
         System.out.println("--------- OLÁ, SEJA BEM VINDO ---------");
@@ -54,7 +54,7 @@ public class TelaPrincipal {
 
     private void erroOpcoes() {
         System.out.println("Voce digitou um valor não valido!");
-        start();
+        iniciarTelaPrincipal();
     }
 
 }

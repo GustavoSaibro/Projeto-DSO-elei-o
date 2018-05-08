@@ -29,7 +29,7 @@ public class PrincipalController {
 	
 	public void iniciaSistema(){
 		telaPrincipal = new TelaPrincipal(this);
-		telaPrincipal.start();
+		telaPrincipal.iniciarTelaPrincipal();
 	}
 	
 	public void iniciarPartido(){
