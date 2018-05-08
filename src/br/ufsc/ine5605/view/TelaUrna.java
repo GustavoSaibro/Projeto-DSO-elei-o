@@ -5,10 +5,30 @@
  */
 package br.ufsc.ine5605.view;
 
+import br.ufsc.ine5605.controller.UrnaController;
+import java.util.Scanner;
+
 /**
  *
  * @author pedro
  */
 public class TelaUrna {
+    
+    private Scanner teclado;
+    private UrnaController urnaController;
+
+    public TelaUrna() {
+        teclado = new Scanner(System.in);
+    }
+
+    public TelaUrna(UrnaController urnaController) {
+        teclado = new Scanner(System.in);
+        this.urnaController = urnaController;
+    }
+    
+    public void opcoesUrna(){}
+    public void cadastrarUrna(){}
+    public void excluirUrna(){}
+    public void listarUrnas(){}
     
 }
