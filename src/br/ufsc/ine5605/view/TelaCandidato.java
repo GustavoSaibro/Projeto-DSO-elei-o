@@ -6,6 +6,10 @@
 package br.ufsc.ine5605.view;
 
 import br.ufsc.ine5605.controller.CandidatoController;
+import br.ufsc.ine5605.model.Candidato;
+import br.ufsc.ine5605.model.Cargo;
+import br.ufsc.ine5605.model.Partido;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -47,7 +51,7 @@ public class TelaCandidato {
                     excluirCandidato();
                     break;
 		case 3:
-                    listarCandidatos();
+                    candidatoController.listaPartido();
                     break;		
 		default:
                         erroOpcoes();
@@ -61,21 +65,30 @@ public class TelaCandidato {
     }
     
     public void cadastrarCandidato(){
-        String nomePartido;
         int numeroPartido;
-        String cargo;
+        int cargoOpcao;
+        Cargo cargo = Cargo.PADRAO;
         String nome;
+        String nomeCidade;
         
-        System.out.println("Digite o nome do Partido:");
-        nomePartido = teclado.next();
+        System.out.println("Qual é o nome do candidato?");
+        nomeCidade = teclado.next();
+        candidatoController.listaPartido();
         System.out.println("Digite o numero do Partido:");
         numeroPartido = teclado.nextInt();
-        System.out.println("Digite o Cargo do Cantidato:");
-        cargo = teclado.next();
+        System.out.println("Qual é o cargo do candidato?");
+        System.out.println("digite 1 para GOVERNADOR");
+        System.out.println("digite 2 para DEP. ESTADUAL");
+        cargoOpcao = teclado.nextInt();
+        if(cargoOpcao == 1){
+            cargo = Cargo.GOVERNADOR;
+        }else if(cargoOpcao == 2){
+            cargo = Cargo.DEPUTADO_ESTADUAL;
+        }
         System.out.println("Digite o Nome do Candidato:");
         nome = teclado.next();
         
-        //candidatoController.cadastrarCandidato(nomePartido, numeroPartido, cargo, nome);
+        candidatoController.cadastrarCandidato(numeroPartido, cargo, nome, nomeCidade);
     }
     
     public void excluirCandidato(){
@@ -87,8 +100,11 @@ public class TelaCandidato {
         //candidatoController.excluirCandidatoByNome(nome);
     }
     
-    public void listarCandidatos(){
-        //candidatoController.listarCandidatos();
+    public void listarCandidatos(ArrayList<Candidato> candidatos){
+        for (int i = 0; i < candidatos.size(); i++) {
+            System.out.println(candidatos.get(i).getNomePessoa() + " " + candidatos.get(i).getCargo() + " " + candidatos.get(i).getPartido().getNumeroPartido());
+        }
+        candidatoController.voltarAoMenuPrincipal();
     }
     
 }

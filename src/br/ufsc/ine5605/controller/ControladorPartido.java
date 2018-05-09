@@ -9,6 +9,7 @@ public class ControladorPartido {
     private ArrayList<Partido> partidos = new ArrayList<>();
     private Partido partido;
     private TelaPartido telaPartido;
+    private PrincipalController principalController;
 
     public void iniciaTelaPartido() {
         telaPartido = new TelaPartido(this);
@@ -35,7 +36,7 @@ public class ControladorPartido {
         telaPartido.listarPartido(partidos);
     }
 
-    private Partido findPartidoByNumero(int numeroPartido) {
+    public Partido findPartidoByNumero(int numeroPartido) {
         for (int i = 0; i < partidos.size(); i++) {
             if (partidos.get(i).getNumeroPartido() == numeroPartido) {
                 partido = partidos.get(i);
@@ -44,7 +45,10 @@ public class ControladorPartido {
         return partido;
     }
     
-    
+    public void voltarAoMenuPrincipal(){
+        principalController = new PrincipalController();
+        principalController.iniciaSistema();
+    }
 	
 	
 	

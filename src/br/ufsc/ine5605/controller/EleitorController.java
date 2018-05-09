@@ -11,6 +11,7 @@ public class EleitorController {
 private Eleitor eleitor;
 private ArrayList<Eleitor> eleitores;
 private TelaEleitor telaEleitor;
+private PrincipalController principalController;
 
 public EleitorController(){
     telaEleitor = new TelaEleitor(this);
@@ -29,18 +30,10 @@ public void cadastrarEleitor(String nomeEleitor, int zonaEleitoral,String nomeCi
     c.setNome(nomeCidade);
     
     eleitor = new Eleitor(nomeEleitor, zonaEleitoral, c, titulo);
-     
-     /*
-     aqui faço uma isntancia de eleitor e percorro o array verificando se 
-     o mesmo já esta cadastrado.
-     */
-     
-     for(Eleitor e: eleitores){
-         if(!eleitor.equals(e)){
+
+    
              eleitores.add(eleitor);
-             break;
-         }
-     }
+            
      ListaEleitores();
 }
 
@@ -65,4 +58,10 @@ private Eleitor findEleitorByTitulo(int titulo) {
         }
         return eleitor;
     }
+
+ public void voltarAoMenuPrincipal(){
+     principalController = new PrincipalController();
+     principalController.iniciaSistema();
+ 
+ }
 }

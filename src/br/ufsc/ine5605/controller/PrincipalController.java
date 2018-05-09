@@ -1,5 +1,6 @@
 package br.ufsc.ine5605.controller;
 
+import br.ufsc.ine5605.model.Partido;
 import br.ufsc.ine5605.view.TelaPrincipal;
 
 public class PrincipalController {
@@ -45,12 +46,21 @@ public class PrincipalController {
 		
 	}
 	public void iniciarCandidato(){
-		System.out.println("Iniciou candidato");
+            candidatoController = new CandidatoController();
+            candidatoController.iniciarTelaCandidato();
 		
 	}
 	public void iniciarVotacao(){
 		System.out.println("iniciou vota��o");
 		
 	}
+
+    public void listarPartido() {
+        controladorPartido.listarPartidos();
+    }
+
+    public Partido findPartidoByNumero(int numeroPartido) {
+        return controladorPartido.findPartidoByNumero(numeroPartido);
+    }
 
 }

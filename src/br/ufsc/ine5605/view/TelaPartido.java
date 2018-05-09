@@ -76,7 +76,7 @@ public class TelaPartido {
         for (int i = 0; i <  partidos.size(); i++) {
             System.out.println(partidos.get(i).getNomePartido() + "-" + partidos.get(i).getNumeroPartido());
         }
-        opcoesPartido();
+        c.voltarAoMenuPrincipal();
     }
     
 }

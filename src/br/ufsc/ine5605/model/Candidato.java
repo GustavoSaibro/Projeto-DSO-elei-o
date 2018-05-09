@@ -13,7 +13,6 @@ public class Candidato extends Pessoa {
     
     private Partido partido;
     private Cargo cargo;
-    private String nome;
 
     public Partido getPartido() {
         return partido;
@@ -21,10 +20,6 @@ public class Candidato extends Pessoa {
 
     public Cargo getCargo() {
         return cargo;
-    }
-
-    public String getNome() {
-        return nome;
     }
 
     public void setPartido(Partido partido) {
@@ -35,11 +30,4 @@ public class Candidato extends Pessoa {
         this.cargo = cargo;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    
-    
-    
 }

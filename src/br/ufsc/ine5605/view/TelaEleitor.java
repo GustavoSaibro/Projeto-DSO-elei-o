@@ -81,10 +81,12 @@ public class TelaEleitor {
 
     public void listarEleitor(ArrayList<Eleitor> eleitores) {
         for (int i = 0; i < eleitores.size(); i++) {
-            System.out.println(eleitores.get(i).getNomePessoa() + 
-                    eleitores.get(i).getCidade().getNome() + eleitores.get(i).getTituloEleitor());
+            System.out.println(eleitores.get(i).getNomePessoa() + " " +
+                    eleitores.get(i).getCidade().getNome() + " " + eleitores.get(i).getTituloEleitor());
         }
-        opcoesEleitor();
+        eleitorController.voltarAoMenuPrincipal();
     }
+    
+    
 
 }

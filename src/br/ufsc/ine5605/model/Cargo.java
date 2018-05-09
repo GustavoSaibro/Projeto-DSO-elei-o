@@ -11,6 +11,7 @@ package br.ufsc.ine5605.model;
  */
 public enum Cargo {
     GOVERNADOR,
-    DEPUTADO_ESTADUAL
+    DEPUTADO_ESTADUAL,
+    PADRAO
     
 }
