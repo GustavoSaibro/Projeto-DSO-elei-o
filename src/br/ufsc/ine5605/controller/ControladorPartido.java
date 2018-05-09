@@ -6,13 +6,18 @@ import br.ufsc.ine5605.model.Partido;
 import br.ufsc.ine5605.view.TelaPartido;
 
 public class ControladorPartido {
-    private ArrayList<Partido> partidos = new ArrayList<>();
+    private ArrayList<Partido> partidos;
     private Partido partido;
     private TelaPartido telaPartido;
     private PrincipalController principalController;
+    
+    public ControladorPartido(PrincipalController principalController){
+        this.principalController = principalController;
+        partidos = new ArrayList<>();
+        telaPartido = new TelaPartido(this);
+    }
 
     public void iniciaTelaPartido() {
-        telaPartido = new TelaPartido(this);
         telaPartido.opcoesPartido();
     }
 
@@ -46,7 +51,6 @@ public class ControladorPartido {
     }
     
     public void voltarAoMenuPrincipal(){
-        principalController = new PrincipalController();
         principalController.iniciaSistema();
     }
 	

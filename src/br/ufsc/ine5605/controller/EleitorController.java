@@ -13,7 +13,8 @@ private ArrayList<Eleitor> eleitores;
 private TelaEleitor telaEleitor;
 private PrincipalController principalController;
 
-public EleitorController(){
+public EleitorController(PrincipalController principalController){
+    this.principalController = principalController;
     telaEleitor = new TelaEleitor(this);
     eleitores = new ArrayList<>();
 
@@ -60,7 +61,6 @@ private Eleitor findEleitorByTitulo(int titulo) {
     }
 
  public void voltarAoMenuPrincipal(){
-     principalController = new PrincipalController();
      principalController.iniciaSistema();
  
  }

@@ -61,6 +61,7 @@ public class TelaPartido {
         System.out.println("Por favor, digite o número do partido");
         numeroPartido = teclado.nextInt();
         c.cadastrarPartido(nomePartido, numeroPartido);
+        c.voltarAoMenuPrincipal();
     }
 
     private void excluirPartido() {
@@ -76,7 +77,7 @@ public class TelaPartido {
         for (int i = 0; i <  partidos.size(); i++) {
             System.out.println(partidos.get(i).getNomePartido() + "-" + partidos.get(i).getNumeroPartido());
         }
-        c.voltarAoMenuPrincipal();
+        
     }
     
 }

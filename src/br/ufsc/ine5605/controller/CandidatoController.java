@@ -14,10 +14,12 @@ public class CandidatoController {
     private TelaCandidato telaCandidato;
     private PrincipalController principalController;
    
+    public CandidatoController(PrincipalController principalController){
+        this.principalController = principalController;
+        telaCandidato = new TelaCandidato(this);
+    }
     
     public void iniciarTelaCandidato(){
-        principalController = new PrincipalController();
-        telaCandidato = new TelaCandidato(this);
         telaCandidato.opcoesCandidato();
     }
     
@@ -32,7 +34,7 @@ public class CandidatoController {
         candidato.setCidade(c);
         
         candidatos.add(candidato);
-        
+        voltarAoMenuPrincipal();
     }
 
     public void listaPartido() {
@@ -44,7 +46,6 @@ public class CandidatoController {
     }
     
     public void voltarAoMenuPrincipal(){
-        principalController = new PrincipalController();
         principalController.iniciaSistema();
     }
 

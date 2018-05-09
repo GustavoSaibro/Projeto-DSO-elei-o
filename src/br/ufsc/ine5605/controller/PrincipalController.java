@@ -12,7 +12,11 @@ public class PrincipalController {
 	private TelaPrincipal telaPrincipal;
 	
 	public PrincipalController(){
-		
+            telaPrincipal = new TelaPrincipal(this);
+            controladorPartido = new ControladorPartido(this);
+            eleitorController = new EleitorController(this);
+            candidatoController = new CandidatoController(this);
+
 	}
 
 	public PrincipalController(ControladorPartido controladorPartido,
@@ -29,16 +33,14 @@ public class PrincipalController {
 	}
 	
 	public void iniciaSistema(){
-		telaPrincipal = new TelaPrincipal(this);
 		telaPrincipal.iniciarTelaPrincipal();
 	}
 	
 	public void iniciarPartido(){
-		controladorPartido = new ControladorPartido();
                 controladorPartido.iniciaTelaPartido();
 	}
         public void iniciarEleitor(){
-            eleitorController = new EleitorController();
+           
             eleitorController.iniciaTelaEleitor();
         }
 	public void iniciarUrna(){
@@ -46,7 +48,7 @@ public class PrincipalController {
 		
 	}
 	public void iniciarCandidato(){
-            candidatoController = new CandidatoController();
+            
             candidatoController.iniciarTelaCandidato();
 		
 	}

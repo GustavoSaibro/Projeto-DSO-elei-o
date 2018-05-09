@@ -104,7 +104,7 @@ public class TelaCandidato {
         for (int i = 0; i < candidatos.size(); i++) {
             System.out.println(candidatos.get(i).getNomePessoa() + " " + candidatos.get(i).getCargo() + " " + candidatos.get(i).getPartido().getNumeroPartido());
         }
-        candidatoController.voltarAoMenuPrincipal();
+        
     }
     
 }
