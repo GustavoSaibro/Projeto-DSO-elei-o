@@ -27,55 +27,39 @@ public class TelaUrna {
     }
     
     public void opcoesUrna(){
-    
-    int opcao = 0;
-        System.out.println("O que você deseja fazer?");
-        System.out.println("");
-        System.out.println("---------------------------------------");
-        System.out.println("");
-        System.out.println("1- Para Cadastrar Urna");
-        System.out.println("2- Para Excluir Urna");
-        System.out.println("3- Para Listar Urnas");
-        System.out.println("4- Voltar");
-
+        int opcao = 0;
+        System.out.println("--------- OPÇÕES DE URNA ---------");
+        System.out.println("----------------------------------");
+        System.out.println("1 - Cadastrar Urna");
+        System.out.println("2 - Excluir Urna");
+        System.out.println("3 - Listar Urna");
         opcao = teclado.nextInt();
-
-        switch (opcao) {
+        
+        switch(opcao){
             case 1:
                 cadastrarUrna();
                 break;
+            
             case 2:
                 excluirUrna();
                 break;
+            
             case 3:
                 listarUrnas();
                 break;
-            case 4:
-                voltar();
-                break;
-            default:
-                erroOpcoes();
-                break;
         }
     }
-    
-    private void erroOpcoes() {
-        System.out.println("Voce digitou um valor não valido!");
-        opcoesUrna();
+    public void cadastrarUrna(){
+        int secao = 0;
+        String cidadeUrna = " ";
+        System.out.println("Digite a seção da urna");
+        secao = teclado.nextInt();
+        System.out.println("Digite a cidade a qual a urna irá pertencer");
+        cidadeUrna = teclado.next();
+        
+        urnaController.cadastrarUrna(secao, cidadeUrna);
     }
-    
-    private void cadastrarUrna(){
-        //urnaController.cadastrarUrna();
-    }
-    private void excluirUrna(){
-        //urnaController.excluirUrna();
-    }
-    private void listarUrnas(){
-        //urnaController.listarUrnas();
-    }
-    
-    private void voltar(){
-        //urnaController.opcoes();
-    }
+    public void excluirUrna(){}
+    public void listarUrnas(){}
     
 }

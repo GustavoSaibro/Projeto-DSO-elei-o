@@ -51,7 +51,7 @@ public class TelaCandidato {
                     excluirCandidato();
                     break;
 		case 3:
-                    candidatoController.listaPartido();
+                    candidatoController.listarCandidato();
                     break;		
 		default:
                         erroOpcoes();
@@ -71,7 +71,7 @@ public class TelaCandidato {
         String nome;
         String nomeCidade;
         
-        System.out.println("Qual é o nome do candidato?");
+        System.out.println("Qual é o nome da cidade?");
         nomeCidade = teclado.next();
         candidatoController.listaPartido();
         System.out.println("Digite o numero do Partido:");
