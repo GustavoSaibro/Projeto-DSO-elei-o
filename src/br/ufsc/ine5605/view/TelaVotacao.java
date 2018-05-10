@@ -39,19 +39,19 @@ public class TelaVotacao {
                 erroOpcoes();
                 break;
         }
-        
-       
-        
     }
-    
     
     private void erroOpcoes() {
         System.out.println("Voce digitou um valor não valido!");
         opcoesVotacao();
     }
     
-    private void votar(){}
+    private void votar(){
+        //votacaoController.votar();
+    }
     
-    private void voltar(){}
+    private void voltar(){
+        //votacaoController.opcoes();
+    }
     
 }
