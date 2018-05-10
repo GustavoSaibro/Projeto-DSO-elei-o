@@ -5,7 +5,7 @@
  */
 package br.ufsc.ine5605.view;
 
-import br.ufsc.ine5605.controller.CandidatoController;
+import br.ufsc.ine5605.controller.ControladorCandidato;
 import br.ufsc.ine5605.model.Candidato;
 import br.ufsc.ine5605.model.Cargo;
 import br.ufsc.ine5605.model.Partido;
@@ -19,9 +19,9 @@ import java.util.Scanner;
 public class TelaCandidato {
     
     private Scanner teclado;
-    private CandidatoController candidatoController;
+    private ControladorCandidato candidatoController;
     
-    public TelaCandidato(CandidatoController candidatoController){
+    public TelaCandidato(ControladorCandidato candidatoController){
         this.candidatoController = candidatoController;
         teclado = new Scanner(System.in);
     }

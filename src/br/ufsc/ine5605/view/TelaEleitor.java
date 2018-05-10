@@ -5,7 +5,7 @@
  */
 package br.ufsc.ine5605.view;
 
-import br.ufsc.ine5605.controller.EleitorController;
+import br.ufsc.ine5605.controller.ControladorEleitor;
 import br.ufsc.ine5605.model.Eleitor;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -17,12 +17,12 @@ import java.util.Scanner;
 public class TelaEleitor {
 
     private Scanner teclado;
-    private EleitorController eleitorController;
+    private ControladorEleitor eleitorController;
 
     public TelaEleitor() {
     }
 
-    public TelaEleitor(EleitorController eleitorController) {
+    public TelaEleitor(ControladorEleitor eleitorController) {
         this.eleitorController = eleitorController;
     }
 

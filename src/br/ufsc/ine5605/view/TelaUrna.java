@@ -5,7 +5,7 @@
  */
 package br.ufsc.ine5605.view;
 
-import br.ufsc.ine5605.controller.UrnaController;
+import br.ufsc.ine5605.controller.ControladorUrna;
 import java.util.Scanner;
 
 /**
@@ -15,13 +15,13 @@ import java.util.Scanner;
 public class TelaUrna {
     
     private Scanner teclado;
-    private UrnaController urnaController;
+    private ControladorUrna urnaController;
 
     public TelaUrna() {
         teclado = new Scanner(System.in);
     }
 
-    public TelaUrna(UrnaController urnaController) {
+    public TelaUrna(ControladorUrna urnaController) {
         teclado = new Scanner(System.in);
         this.urnaController = urnaController;
     }

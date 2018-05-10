@@ -3,27 +3,27 @@ package br.ufsc.ine5605.controller;
 import br.ufsc.ine5605.model.Partido;
 import br.ufsc.ine5605.view.TelaPrincipal;
 
-public class PrincipalController {
+public class ControladorPrincipal {
 	private ControladorPartido controladorPartido;
-	private UrnaController urnaController;
-	private CandidatoController candidatoController;
-	private EleitorController eleitorController;
-	private VotacaoController votacaoController;
+	private ControladorUrna urnaController;
+	private ControladorCandidato candidatoController;
+	private ControladorEleitor eleitorController;
+	private ControladorVotacao votacaoController;
 	private TelaPrincipal telaPrincipal;
 	
-	public PrincipalController(){
+	public ControladorPrincipal(){
             telaPrincipal = new TelaPrincipal(this);
             controladorPartido = new ControladorPartido(this);
-            eleitorController = new EleitorController(this);
-            candidatoController = new CandidatoController(this);
-
+            eleitorController = new ControladorEleitor(this);
+            candidatoController = new ControladorCandidato(this);
+            urnaController = new ControladorUrna(this);
 	}
 
-	public PrincipalController(ControladorPartido controladorPartido,
-			UrnaController urnaController,
-			CandidatoController candidatoController,
-			EleitorController eleitorController,
-			VotacaoController votacaoController) {
+	public ControladorPrincipal(ControladorPartido controladorPartido,
+			ControladorUrna urnaController,
+			ControladorCandidato candidatoController,
+			ControladorEleitor eleitorController,
+			ControladorVotacao votacaoController) {
 		super();
 		this.controladorPartido = controladorPartido;
 		this.urnaController = urnaController;

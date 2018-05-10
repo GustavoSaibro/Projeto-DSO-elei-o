@@ -9,9 +9,9 @@ public class ControladorPartido {
     private ArrayList<Partido> partidos;
     private Partido partido;
     private TelaPartido telaPartido;
-    private PrincipalController principalController;
+    private ControladorPrincipal principalController;
     
-    public ControladorPartido(PrincipalController principalController){
+    public ControladorPartido(ControladorPrincipal principalController){
         this.principalController = principalController;
         partidos = new ArrayList<>();
         telaPartido = new TelaPartido(this);

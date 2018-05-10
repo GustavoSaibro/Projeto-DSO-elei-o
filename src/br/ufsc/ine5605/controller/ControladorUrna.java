@@ -5,13 +5,13 @@ import br.ufsc.ine5605.model.Urna;
 import br.ufsc.ine5605.view.TelaUrna;
 import java.util.ArrayList;
 
-public class UrnaController {
+public class ControladorUrna {
     private ArrayList<Urna> urnas;
     private Urna urna;
     private TelaUrna telaUrna;
-    private PrincipalController  principalController;
+    private ControladorPrincipal  principalController;
     
-    public UrnaController(PrincipalController principalController){
+    public ControladorUrna(ControladorPrincipal principalController){
         urnas = new ArrayList<>();
         this.principalController = principalController;
         telaUrna = new TelaUrna(this);
