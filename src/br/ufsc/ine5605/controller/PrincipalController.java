@@ -44,7 +44,7 @@ public class PrincipalController {
             eleitorController.iniciaTelaEleitor();
         }
 	public void iniciarUrna(){
-		System.out.println("Iniciou urna");
+            urnaController.iniciarTelaUrna();
 		
 	}
 	public void iniciarCandidato(){

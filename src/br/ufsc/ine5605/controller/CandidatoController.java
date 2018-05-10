@@ -17,6 +17,7 @@ public class CandidatoController {
     public CandidatoController(PrincipalController principalController){
         this.principalController = principalController;
         telaCandidato = new TelaCandidato(this);
+        candidatos = new ArrayList<>();
     }
     
     public void iniciarTelaCandidato(){
@@ -34,6 +35,7 @@ public class CandidatoController {
         candidato.setCidade(c);
         
         candidatos.add(candidato);
+        listarCandidato();
         voltarAoMenuPrincipal();
     }
 

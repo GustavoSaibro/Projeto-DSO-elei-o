@@ -26,8 +26,39 @@ public class TelaUrna {
         this.urnaController = urnaController;
     }
     
-    public void opcoesUrna(){}
-    public void cadastrarUrna(){}
+    public void opcoesUrna(){
+        int opcao = 0;
+        System.out.println("--------- OPÇÕES DE URNA ---------");
+        System.out.println("----------------------------------");
+        System.out.println("1 - Cadastrar Urna");
+        System.out.println("2 - Excluir Urna");
+        System.out.println("3 - Listar Urna");
+        opcao = teclado.nextInt();
+        
+        switch(opcao){
+            case 1:
+                cadastrarUrna();
+                break;
+            
+            case 2:
+                excluirUrna();
+                break;
+            
+            case 3:
+                listarUrnas();
+                break;
+        }
+    }
+    public void cadastrarUrna(){
+        int secao = 0;
+        String cidadeUrna = " ";
+        System.out.println("Digite a seção da urna");
+        secao = teclado.nextInt();
+        System.out.println("Digite a cidade a qual a urna irá pertencer");
+        cidadeUrna = teclado.next();
+        
+        urnaController.cadastrarUrna(secao, cidadeUrna);
+    }
     public void excluirUrna(){}
     public void listarUrnas(){}
     
