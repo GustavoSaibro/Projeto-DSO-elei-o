@@ -25,15 +25,32 @@ public class ControladorPartido {
         partido = new Partido();
         partido.setNomePartido(nomePartido);
         partido.setNumeroPartido(numeroPartido);
+        
+        if(partidos.size() == 0){
         partidos.add(partido);
+        }else{
+            
+            //aqui percorro o array de partidos verificando se já esta cadastrado, caso já esteja passa uma mensagem de erro.
+            
+            
+            for(int i = 0; i < partidos.size(); i++){
+                if(partidos.get(i) != null && partidos.get(i).getNumeroPartido() == numeroPartido){
+                    telaPartido.jaCadastrado();
+                    break;
+                }else{
+                    partidos.add(partido);
+                }
+            }
+        }
         listarPartidos();
     }
 
     public void excluirPartido(int numeroPartido) {
         if (findPartidoByNumero(numeroPartido).equals(null)) {
             
-        }else{
-            partidos.remove(findPartidoByNumero(numeroPartido));   
+        }else{            
+            partidos.remove(findPartidoByNumero(numeroPartido)); 
+            telaPartido.removeuPartido();
         }
     }
     

@@ -33,7 +33,7 @@ public class CandidatoController {
         candidato.setNomePessoa(nomeCandidato);
         candidato.setPartido(p);
         candidato.setCidade(c);
-        
+                       
         candidatos.add(candidato);
         listarCandidato();
         voltarAoMenuPrincipal();
