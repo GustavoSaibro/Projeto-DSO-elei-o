@@ -69,7 +69,7 @@ public class EleitorController {
 
     private Eleitor findEleitorByTitulo(int titulo) {
         for (int i = 0; i < eleitores.size(); i++) {
-            if (eleitores.get(i).getTituloEleitor() == titulo) {
+            if (eleitores.get(i) != null && eleitores.get(i).getTituloEleitor() == titulo) {
                 eleitor = eleitores.get(i);
             }
         }

@@ -61,5 +61,13 @@ public class TelaUrna {
     }
     public void excluirUrna(){}
     public void listarUrnas(){}
+
+    public void urnaJaCadastrada() {
+        System.out.println("Urna com esta secão já cadastrada!!");
+    }
+
+    public void removeuUrna() {
+        System.out.println("Urna removida com sucesso!!");
+    }
     
 }

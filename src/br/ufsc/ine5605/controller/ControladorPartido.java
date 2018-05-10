@@ -60,7 +60,7 @@ public class ControladorPartido {
 
     public Partido findPartidoByNumero(int numeroPartido) {
         for (int i = 0; i < partidos.size(); i++) {
-            if (partidos.get(i).getNumeroPartido() == numeroPartido) {
+            if (partidos.get(i) != null && partidos.get(i).getNumeroPartido() == numeroPartido) {
                 partido = partidos.get(i);
             }
         }
