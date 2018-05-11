@@ -25,16 +25,12 @@ public class TelaCandidato {
         this.candidatoController = candidatoController;
         teclado = new Scanner(System.in);
     }
-
-    public TelaCandidato() {
-    }
     
     public void opcoesCandidato(){
         	int opcao;
 		System.out.println("Opções Candidato:");
 		System.out.println("");
                 System.out.println("O que você deseja fazer?");
-		System.out.println("");
 		System.out.println("");
 		System.out.println("1- Para Cadastrar Candidato");
 		System.out.println("2- Para Excluir Candidato---");

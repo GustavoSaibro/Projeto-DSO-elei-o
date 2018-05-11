@@ -28,7 +28,9 @@ public class ControladorUrna {
         urna.setCidade(c);
         urna.setSecao(secao);
         urnas.add(urna);
-        
+        System.out.println("Urna Cadastrada!");
+        System.out.println("");
+        telaUrna.opcoesUrna();
     }
     
     public void excluirUrna(int secao){
