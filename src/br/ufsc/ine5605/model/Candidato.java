@@ -10,9 +10,14 @@ package br.ufsc.ine5605.model;
  * @author Gustavo
  */
 public class Candidato extends Pessoa {
-    
+
     private Partido partido;
     private Cargo cargo;
+    private int numeroDeVotos;
+
+    public int getNumeroDeVotos() {
+        return numeroDeVotos;
+    }
 
     public Partido getPartido() {
         return partido;
@@ -28,6 +33,10 @@ public class Candidato extends Pessoa {
 
     public void setCargo(Cargo cargo) {
         this.cargo = cargo;
+    }
+
+    public void setNumeroDeVotos(int numeroDeVotos) {
+        this.numeroDeVotos = numeroDeVotos;
     }
 
 }

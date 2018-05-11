@@ -10,9 +10,20 @@ package br.ufsc.ine5605.model;
  * @author Gustavo
  */
 public class Eleitor extends Pessoa{
-
-    public Eleitor(String nomePessoa, int zonaEleitoral, Cidade cidade, int tituloEleitor) {
+    
+    private int secao;
+    
+    public Eleitor(String nomePessoa, int zonaEleitoral, Cidade cidade, int tituloEleitor, int secao) {
         super(nomePessoa, zonaEleitoral, cidade, tituloEleitor);
+        this.secao = secao;
+    }
+
+    public int getSecao() {
+        return secao;
+    }
+
+    public void setSecao(int secao) {
+        this.secao = secao;
     }
    
     

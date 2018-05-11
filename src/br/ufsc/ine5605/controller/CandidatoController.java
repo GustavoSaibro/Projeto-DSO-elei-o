@@ -51,4 +51,8 @@ public class CandidatoController {
         principalController.iniciaSistema();
     }
 
+    ArrayList getCandidatos() {
+        return candidatos;
+    }
+
 }

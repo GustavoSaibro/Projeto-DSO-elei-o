@@ -60,6 +60,7 @@ public class TelaEleitor {
         int zonaEleitoral = 0;
         String nomeCidade = "";
         int titulo = 0;
+        int secao = 0;
         System.out.println("Por favor, digite o nome do eleitor");
         nomeEleitor = teclado.next();
         System.out.println("Por favor, digite o número da zona eleitoral");
@@ -68,8 +69,10 @@ public class TelaEleitor {
         nomeCidade = teclado.next();
         System.out.println("Por favor, digite o título do eleitor");
         titulo = teclado.nextInt();
+        System.out.println("Por favor, digite a seção do eleitor");
+        secao = teclado.nextInt();
         
-        eleitorController.cadastrarEleitor(nomeEleitor, zonaEleitoral, nomeCidade, titulo);
+        eleitorController.cadastrarEleitor(nomeEleitor, zonaEleitoral, nomeCidade, titulo,secao);
     }
 
     private void ExcluirEleitorByTitulo() {

@@ -25,12 +25,12 @@ public class EleitorController {
         telaEleitor.opcoesEleitor();
     }
 
-    public void cadastrarEleitor(String nomeEleitor, int zonaEleitoral, String nomeCidade, int titulo) {
+    public void cadastrarEleitor(String nomeEleitor, int zonaEleitoral, String nomeCidade, int titulo, int secao) {
         // CRIA UMA NOVA CIDADE
         Cidade c = new Cidade();
         c.setNome(nomeCidade);
 
-        eleitor = new Eleitor(nomeEleitor, zonaEleitoral, c, titulo);
+        eleitor = new Eleitor(nomeEleitor, zonaEleitoral, c, titulo, secao);
 
         if (eleitores.size() == 0) {
             eleitores.add(eleitor);
@@ -79,5 +79,9 @@ public class EleitorController {
     public void voltarAoMenuPrincipal() {
         principalController.iniciaSistema();
 
+    }
+
+    ArrayList getEleitores() {
+        return eleitores;
     }
 }

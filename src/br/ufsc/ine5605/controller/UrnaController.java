@@ -1,6 +1,8 @@
 package br.ufsc.ine5605.controller;
 
+import br.ufsc.ine5605.model.Candidato;
 import br.ufsc.ine5605.model.Cidade;
+import br.ufsc.ine5605.model.Eleitor;
 import br.ufsc.ine5605.model.Urna;
 import br.ufsc.ine5605.view.TelaUrna;
 import java.util.ArrayList;
@@ -12,10 +14,11 @@ public class UrnaController {
     private TelaUrna telaUrna;
     private PrincipalController principalController;
 
-    public UrnaController(PrincipalController principalController) {
+    
+    public UrnaController(PrincipalController principalController, CandidatoController candidatoController) {
         urnas = new ArrayList<>();
         this.principalController = principalController;
-        telaUrna = new TelaUrna(this);
+        telaUrna = new TelaUrna(this);     
     }
 
     public void iniciarTelaUrna() {
@@ -53,7 +56,7 @@ public class UrnaController {
 
     }
 
-    public Urna findUrnaBySecao(int secao) {
+    private Urna findUrnaBySecao(int secao) {
         for (int i = 0; i < urnas.size(); i++) {
             if (urnas.get(i) != null && urnas.get(i).getSecao() == secao) {
                 urna = urnas.get(i);
@@ -61,4 +64,10 @@ public class UrnaController {
         }
         return urna;
     }
+    
+    public ArrayList urnasCadastradas(){
+        return urnas;
+    }
+    
+    
 }
