@@ -26,15 +26,13 @@ public class TelaPartido {
     public void opcoesPartido(){
         teclado = new Scanner(System.in);
 		int opcao = 0;
-		System.out.println("--------- OPÇÕES DO PARTIDO ---------");
-		System.out.println("-------O que voc� deseja fazer?--------");
+		System.out.println("Opções de Partido");
 		System.out.println("");
-		System.out.println("---------------------------------------");
-		System.out.println("");
-		System.out.println("-----Tecle 1 - Para cadastrar um partido-----");
-		System.out.println("--Tecle 2 - Para excluir um partido---");
-		System.out.println("---Tecle 3 - Para listar um partido----");
-                System.out.println("---Tecle 4 - Para encerrar o programa -----");
+		System.out.println("1- Para cadastrar um partido-----");
+		System.out.println("2- Para excluir um partido---");
+		System.out.println("3- Para listar um partido----");
+                System.out.println("4- Voltar");
+                System.out.println("");
 		opcao = teclado.nextInt(); 
         
         switch(opcao){
@@ -48,6 +46,7 @@ public class TelaPartido {
                 c.listarPartidos();
                 break;
             case 4:
+                c.voltarAoMenuPrincipal();
                 break;
             default:
                 erroOpcoes();

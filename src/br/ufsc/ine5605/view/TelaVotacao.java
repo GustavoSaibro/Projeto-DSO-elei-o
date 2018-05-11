@@ -29,8 +29,10 @@ public class TelaVotacao {
     
     public void opcoesVotacao(){
         System.out.println("Opções da Votação");
+        System.out.println("");
         System.out.println("1- Votar");
         System.out.println("2- Voltar");
+        System.out.println("");
         int opcao;
         opcao = teclado.nextInt();
         

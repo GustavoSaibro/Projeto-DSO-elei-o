@@ -16,17 +16,15 @@ public class TelaPrincipal {
     public void iniciarTelaPrincipal() {
         teclado = new Scanner(System.in);
         int opcao = 0;
-        System.out.println("--------- OLÁ, SEJA BEM VINDO ---------");
-        System.out.println("-------O que você deseja fazer?--------");
+        System.out.println("    Olá, Seja Bem Vindo!    ");
+        System.out.println("    O que deseja?");
         System.out.println("");
-        System.out.println("---------------------------------------");
-        System.out.println("");
-        System.out.println("-----Tecle 1 - Para Opções da urna-----");
-        System.out.println("--Tecle 2 - Para Opções de candidato---");
-        System.out.println("---Tecle 3 - Para Opções de Partido----");
-        System.out.println("--------Tecle 4 - Para votação---------");
-        System.out.println("--------Tecle 5 - Para eleitor---------");
-        System.out.println("--------Tecle 6 - Para apurações-------");
+        System.out.println("1- Para Opções da Urna");
+        System.out.println("2- Para Opções de Candidato");
+        System.out.println("3- Para Opções de Partido");
+        System.out.println("4- Para Opções de Votação");
+        System.out.println("5- Para Opções de Eleitor");
+        System.out.println("6- Para Opções de Apuração");
         
           
         
@@ -61,7 +59,7 @@ public class TelaPrincipal {
 
     }
         catch(Exception e){
-            System.out.println("Somente pode-se digitar numeros para o menu de opções! Favor digitar novamente...");
+            System.out.println("Valor inválido! Digite apenas numeros, por favor");
             iniciarTelaPrincipal();
         }
     

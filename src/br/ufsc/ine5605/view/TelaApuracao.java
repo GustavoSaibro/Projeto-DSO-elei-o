@@ -23,9 +23,11 @@ public class TelaApuracao {
 
    public void opcoesApuracao(){
        int opcao;
-       System.out.println("Opções de apuração");
+       System.out.println("Opções de Apuração");
+       System.out.println("");
        System.out.println("Digite 1 para apurar uma urna");
        System.out.println("Digite 2 para apuração geral");
+       System.out.println("");
        opcao = teclado.nextInt();
        
        switch(opcao){

@@ -29,14 +29,13 @@ public class TelaEleitor {
     public void opcoesEleitor() {
         teclado = new Scanner(System.in);
         int opcao = 0;
-        System.out.println("--------- OLÁ, SEJA BEM VINDO ---------");
-        System.out.println("-------O que voce deseja fazer?--------");
+        System.out.println("Opções de Eleitor");
         System.out.println("");
-        System.out.println("---------------------------------------");
+        System.out.println("1- Para Cadastrar Eleitor");
+        System.out.println("2- Para Excluir Eleitor");
+        System.out.println("3- Para Listar Eleitores ");
+        System.out.println("4- Voltar");
         System.out.println("");
-        System.out.println("----- 1- Para Cadastrar Eleitor -----");
-        System.out.println("--- Tecle 2 - Para Excluir Eleitor ---");
-        System.out.println("--- Tecle 3 - Para Listar Eleitores ----");
         opcao = teclado.nextInt();
 
         switch (opcao) {
@@ -49,6 +48,9 @@ public class TelaEleitor {
 		case 3:
 			eleitorController.ListaEleitores();
 			break;
+                case 4:
+                        eleitorController.voltarAoMenuPrincipal();
+                        break;
                 default:
                         erroOpcoes();
 			break;

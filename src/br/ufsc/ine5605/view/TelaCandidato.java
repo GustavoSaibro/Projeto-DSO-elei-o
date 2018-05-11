@@ -8,7 +8,6 @@ package br.ufsc.ine5605.view;
 import br.ufsc.ine5605.controller.ControladorCandidato;
 import br.ufsc.ine5605.model.Candidato;
 import br.ufsc.ine5605.model.Cargo;
-import br.ufsc.ine5605.model.Partido;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -31,8 +30,7 @@ public class TelaCandidato {
     public void opcoesCandidato(){
         teclado = new Scanner(System.in);
         	int opcao;
-		System.out.println("Opções Candidato:");
-		System.out.println("");
+		System.out.println("Opções de Candidato:");
                 System.out.println("O que você deseja fazer?");
 		System.out.println("");
 		System.out.println("1- Para Cadastrar Candidato");
@@ -91,7 +89,7 @@ public class TelaCandidato {
             numeroCandidato = numeroPartido;
         }else if(cargoOpcao == 2){
             cargo = Cargo.DEPUTADO_ESTADUAL;
-            System.out.println("Digite o numero do candidato");
+            System.out.println("Digite o Numero do Candidato");
             numeroCandidato = teclado.nextInt();
         }
         System.out.println("Digite o Nome do Candidato:");

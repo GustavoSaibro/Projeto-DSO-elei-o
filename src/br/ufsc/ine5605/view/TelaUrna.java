@@ -28,12 +28,14 @@ public class TelaUrna {
     public void opcoesUrna(){
         teclado = new Scanner(System.in);
         int opcao = 0;
-        System.out.println("--------- OPÇÕES DE URNA ---------");
-        System.out.println("----------------------------------");
+        System.out.println("Opções de Urna");
+        System.out.println("");
         System.out.println("1- Cadastrar Urna");
         System.out.println("2- Excluir Urna");
         System.out.println("3- Listar Urna");
         System.out.println("4- Voltar");
+        System.out.println("");
+        
         opcao = teclado.nextInt();
         switch(opcao){
             case 1:
