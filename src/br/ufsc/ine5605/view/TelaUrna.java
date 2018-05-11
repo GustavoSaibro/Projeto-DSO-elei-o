@@ -8,6 +8,7 @@ package br.ufsc.ine5605.view;
 import br.ufsc.ine5605.controller.ControladorUrna;
 import br.ufsc.ine5605.model.Urna;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -17,14 +18,11 @@ import java.util.Scanner;
 public class TelaUrna {
     
     private Scanner teclado;
-    private ControladorUrna urnaController;
+    private ControladorUrna controladorUrna;
 
-    public TelaUrna() {
-    }
-
-    public TelaUrna(ControladorUrna urnaController) {
-        
-        this.urnaController = urnaController;
+    public TelaUrna(ControladorUrna controladorUrna) {
+        teclado = new Scanner(System.in);
+        this.controladorUrna = controladorUrna;
     }
     
     public void opcoesUrna(){
@@ -32,27 +30,35 @@ public class TelaUrna {
         int opcao = 0;
         System.out.println("--------- OPÇÕES DE URNA ---------");
         System.out.println("----------------------------------");
-        System.out.println("1 - Cadastrar Urna");
-        System.out.println("2 - Excluir Urna");
-        System.out.println("3 - Listar Urna");
-        opcao = teclado.nextInt();
+        System.out.println("1- Cadastrar Urna");
+        System.out.println("2- Excluir Urna");
+        System.out.println("3- Listar Urna");
+        System.out.println("4- Voltar");
         
         switch(opcao){
             case 1:
                 cadastrarUrna();
                 break;
-            
             case 2:
                 excluirUrna();
                 break;
-            
             case 3:
-                urnaController.listarUrnas();
+                controladorUrna.listarUrnas();
+                break;
+            case 4:
+                controladorUrna.voltarAoMenuPrincipal();
                 break;
             default:
+                erroOpcoes();
                 break;
         }
     }
+    
+    private void erroOpcoes() {
+        System.out.println("Voce digitou um valor não valido!");
+        opcoesUrna();
+    }
+    
     public void cadastrarUrna(){
         teclado = new Scanner(System.in);
         int secao = 0;
@@ -62,8 +68,8 @@ public class TelaUrna {
         System.out.println("Digite a cidade a qual a urna irá pertencer");
         cidadeUrna = teclado.next();
         
-        urnaController.cadastrarUrna(secao, cidadeUrna);
-        urnaController.voltarAoMenuPrincipal();
+        controladorUrna.cadastrarUrna(secao, cidadeUrna);
+        controladorUrna.voltarAoMenuPrincipal();
     }
     public void excluirUrna(){
     
