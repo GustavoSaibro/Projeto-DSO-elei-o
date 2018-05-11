@@ -50,8 +50,14 @@ public class TelaPartido {
             case 4:
                 break;
             default:
+                erroOpcoes();
                 break;
         }
+    }
+    
+    private void erroOpcoes(){
+        System.out.println("Voce digitou um valor não valido!");
+        opcoesPartido();
     }
 
     private void cadastrarPartido() {

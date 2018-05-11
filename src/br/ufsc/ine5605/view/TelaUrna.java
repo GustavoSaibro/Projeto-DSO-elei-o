@@ -34,7 +34,7 @@ public class TelaUrna {
         System.out.println("2- Excluir Urna");
         System.out.println("3- Listar Urna");
         System.out.println("4- Voltar");
-        
+        opcao = teclado.nextInt();
         switch(opcao){
             case 1:
                 cadastrarUrna();
