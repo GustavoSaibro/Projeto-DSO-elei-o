@@ -13,12 +13,17 @@ public class Candidato extends Pessoa {
 
     private Partido partido;
     private Cargo cargo;
+    private int numeroCandidato;
     private int numeroDeVotos;
 
     public int getNumeroDeVotos() {
         return numeroDeVotos;
     }
-
+    
+    public int getNumeroCandidato() {
+        return numeroCandidato;
+    } 
+    
     public Partido getPartido() {
         return partido;
     }
@@ -35,8 +40,16 @@ public class Candidato extends Pessoa {
         this.cargo = cargo;
     }
 
+    public void setNumeroCandidato(int numeroCandidato) {
+        this.numeroCandidato = numeroCandidato;
+    }
+
     public void setNumeroDeVotos(int numeroDeVotos) {
         this.numeroDeVotos = numeroDeVotos;
     }
+    
+    
+
+  
 
 }

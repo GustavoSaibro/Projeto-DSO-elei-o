@@ -12,7 +12,7 @@ package br.ufsc.ine5605.model;
 public class Partido {
     
     private String nomePartido;
-    private int numeroPartido;
+    private int numeroPartido;   
 
     public Partido(){}
     

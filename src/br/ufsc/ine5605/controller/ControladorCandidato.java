@@ -54,5 +54,14 @@ public class ControladorCandidato {
     ArrayList getCandidatos() {
         return candidatos;
     }
+    
+    public Candidato findCandidatoByNumero(int numeroCandidato){
+        for(int i = 0; i < candidatos.size(); i++){
+            if(candidatos.get(i) != null && candidatos.get(i).getNumeroCandidato() == numeroCandidato){
+                candidato = candidatos.get(i);
+            }
+        }
+        return candidato;
+    }
 
 }

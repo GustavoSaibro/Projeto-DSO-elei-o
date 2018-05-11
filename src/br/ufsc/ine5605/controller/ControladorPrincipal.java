@@ -1,5 +1,7 @@
 package br.ufsc.ine5605.controller;
 
+import br.ufsc.ine5605.model.Candidato;
+import br.ufsc.ine5605.model.Eleitor;
 import br.ufsc.ine5605.model.Partido;
 import br.ufsc.ine5605.view.TelaPrincipal;
 import java.util.ArrayList;
@@ -74,4 +76,11 @@ public class ControladorPrincipal {
         return partidoController.getPartidos();
     }
     
+    public Eleitor findEleitorByTitulo(int titulo){
+        return eleitorController.findEleitorByTitulo(titulo);
+    }
+    
+    public Candidato findCandidatoByNumero(int numeroCandidato){
+        return candidatoController.findCandidatoByNumero(numeroCandidato);
+    }
 }
