@@ -24,13 +24,14 @@ public class ControladorCandidato {
         telaCandidato.opcoesCandidato();
     }
     
-    public void cadastrarCandidato(int numeroPartido, Cargo cargo, String nomeCandidato, String nomeCidade){
+    public void cadastrarCandidato(int numeroPartido, Cargo cargo, String nomeCandidato, int numeroCandidato, String nomeCidade){
         Partido p = principalController.findPartidoByNumero(numeroPartido);
         Cidade c = new Cidade();
         c.setNome(nomeCidade);
         candidato = new Candidato();
         candidato.setCargo(cargo);
         candidato.setNomePessoa(nomeCandidato);
+        candidato.setNumeroPartido(numeroPartido);
         candidato.setPartido(p);
         candidato.setCidade(c);
                        

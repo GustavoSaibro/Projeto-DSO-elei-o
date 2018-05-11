@@ -23,13 +23,13 @@ public class TelaCandidato {
     
     public TelaCandidato(ControladorCandidato candidatoController){
         this.candidatoController = candidatoController;
-        teclado = new Scanner(System.in);
     }
 
     public TelaCandidato() {
     }
     
     public void opcoesCandidato(){
+        teclado = new Scanner(System.in);
         	int opcao;
 		System.out.println("Opções Candidato:");
 		System.out.println("");
@@ -68,8 +68,10 @@ public class TelaCandidato {
     }
     
     public void cadastrarCandidato(){
+        teclado = new Scanner(System.in);
         int numeroPartido;
         int cargoOpcao;
+        int numeroCandidato = 0;
         Cargo cargo = Cargo.PADRAO;
         String nome;
         String nomeCidade;
@@ -77,6 +79,7 @@ public class TelaCandidato {
         System.out.println("Qual é o nome da cidade?");
         nomeCidade = teclado.next();
         candidatoController.listaPartido();
+        teclado = new Scanner(System.in);
         System.out.println("Digite o numero do Partido:");
         numeroPartido = teclado.nextInt();
         System.out.println("Qual é o cargo do candidato?");
@@ -85,13 +88,16 @@ public class TelaCandidato {
         cargoOpcao = teclado.nextInt();
         if(cargoOpcao == 1){
             cargo = Cargo.GOVERNADOR;
+            numeroCandidato = numeroPartido;
         }else if(cargoOpcao == 2){
             cargo = Cargo.DEPUTADO_ESTADUAL;
+            System.out.println("Digite o numero do candidato");
+            numeroCandidato = teclado.nextInt();
         }
         System.out.println("Digite o Nome do Candidato:");
         nome = teclado.next();
         
-        candidatoController.cadastrarCandidato(numeroPartido, cargo, nome, nomeCidade);
+        candidatoController.cadastrarCandidato(numeroPartido, cargo, nome, numeroPartido, nomeCidade);
     }
     
     public void excluirCandidato(){

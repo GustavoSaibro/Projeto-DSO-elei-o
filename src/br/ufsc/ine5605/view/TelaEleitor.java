@@ -64,10 +64,13 @@ public class TelaEleitor {
         System.out.println("Por favor, digite o nome do eleitor");
         nomeEleitor = teclado.next();
         System.out.println("Por favor, digite o número da zona eleitoral");
+        teclado = new Scanner(System.in);
         zonaEleitoral = teclado.nextInt();
         System.out.println("Por favor, digite o nome da cidade do eleitor");
+        teclado = new Scanner(System.in);
         nomeCidade = teclado.next();
         System.out.println("Por favor, digite o título do eleitor");
+        teclado = new Scanner(System.in);
         titulo = teclado.nextInt();
         System.out.println("Por favor, digite a seção do eleitor");
         secao = teclado.nextInt();

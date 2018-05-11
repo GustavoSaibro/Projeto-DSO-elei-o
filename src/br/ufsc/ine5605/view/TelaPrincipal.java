@@ -26,15 +26,15 @@ public class TelaPrincipal {
         System.out.println("---Tecle 3 - Para Opções de Partido----");
         System.out.println("--------Tecle 4 - Para votação---------");
         System.out.println("--------Tecle 5 - Para eleitor---------");
+        System.out.println("--------Tecle 6 - Para apurações-------");
         
-        
+          
         
         try{
-        
-            opcao = teclado.nextInt();
-        
-        
-        
+
+        opcao = teclado.nextInt();
+
+
         switch (opcao) {
             case 1:
                 principalController.iniciarUrna();
@@ -51,6 +51,9 @@ public class TelaPrincipal {
             case 5:
                 principalController.iniciarEleitor();
                 break;
+            case 6:
+                principalController.iniciarApuracao();
+                break;
             default:
                 erroOpcoes();
                 break;
@@ -58,7 +61,8 @@ public class TelaPrincipal {
 
     }
         catch(Exception e){
-            
+            System.out.println("Somente pode-se digitar numeros para o menu de opções! Favor digitar novamente...");
+            iniciarTelaPrincipal();
         }
     
     }
