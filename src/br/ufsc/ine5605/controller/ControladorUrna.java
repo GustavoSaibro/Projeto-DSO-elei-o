@@ -59,7 +59,7 @@ public class ControladorUrna {
 
     }
 
-    private Urna findUrnaBySecao(int secao) {
+    public Urna findUrnaBySecao(int secao) {
         for (int i = 0; i < urnas.size(); i++) {
             if (urnas.get(i) != null && urnas.get(i).getSecao() == secao) {
                 urna = urnas.get(i);
@@ -74,6 +74,16 @@ public class ControladorUrna {
 
     public void voltarAoMenuPrincipal() {
         principalController.iniciaSistema();
+    }
+
+    public ArrayList<Urna> findUrnaByCidade(String cidade) {
+        ArrayList<Urna> urnasDaCidade = new ArrayList<>();
+        for (int i = 0; i < urnas.size(); i++) {
+            if(urnas.get(i).getCidade().getNome() == cidade){
+                urnasDaCidade.add(urnas.get(i));
+            }
+        }
+        return urnasDaCidade;
     }
     
     
