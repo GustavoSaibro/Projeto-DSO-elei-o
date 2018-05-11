@@ -15,15 +15,15 @@ import java.util.Scanner;
 public class TelaUrna {
     
     private Scanner teclado;
-    private ControladorUrna urnaController;
+    private ControladorUrna controladorUrna;
 
     public TelaUrna() {
         teclado = new Scanner(System.in);
     }
 
-    public TelaUrna(ControladorUrna urnaController) {
+    public TelaUrna(ControladorUrna controladorUrna) {
         teclado = new Scanner(System.in);
-        this.urnaController = urnaController;
+        this.controladorUrna = controladorUrna;
     }
     
     public void opcoesUrna(){
@@ -33,6 +33,7 @@ public class TelaUrna {
         System.out.println("1 - Cadastrar Urna");
         System.out.println("2 - Excluir Urna");
         System.out.println("3 - Listar Urna");
+        System.out.println("4- Voltar");
         opcao = teclado.nextInt();
         
         switch(opcao){
@@ -47,19 +48,49 @@ public class TelaUrna {
             case 3:
                 listarUrnas();
                 break;
+            case 4:
+                controladorUrna.iniciarTelaUrna();
+                break;
+            default:
+                erroOpcoes();
+                break;
         }
     }
+    
+    private void erroOpcoes() {
+        System.out.println("Voce digitou um valor não valido!");
+        opcoesUrna();
+    }
+    
     public void cadastrarUrna(){
         int secao = 0;
-        String cidadeUrna = " ";
+        String cidadeUrna = "";
         System.out.println("Digite a seção da urna");
         secao = teclado.nextInt();
         System.out.println("Digite a cidade a qual a urna irá pertencer");
         cidadeUrna = teclado.next();
         
-        urnaController.cadastrarUrna(secao, cidadeUrna);
+        controladorUrna.cadastrarUrna(secao, cidadeUrna);
+        
     }
-    public void excluirUrna(){}
-    public void listarUrnas(){}
+    public void excluirUrna(){
+        int secao = 0;
+        System.out.println("Digite a seção da urna");
+        secao = teclado.nextInt();
+        
+        controladorUrna.excluirUrna(secao);
+        
+    }
+    public void listarUrnas(){
+    
+    }
+
+    public void urnaJaCadastrada() {
+        System.out.println("Urna com esta seção já cadastrada!!");
+    }
+
+    public void removeuUrna() {
+        System.out.println("Urna removida com sucesso!!");
+    }
     
 }

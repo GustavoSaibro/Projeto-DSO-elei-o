@@ -50,6 +50,10 @@ public class Urna {
         this.cidade = cidade;
     }
     
-    
-    
+    /*
+    private Urna getUrnaBySecao(int secao){
+        Urna urnaEscolhida = null;
+        return urnaEscolhida;
+    }
+    */
 }

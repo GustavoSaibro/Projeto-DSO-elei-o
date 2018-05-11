@@ -39,7 +39,7 @@ public class ControladorCandidato {
         voltarAoMenuPrincipal();
     }
 
-    public void listaPartido() {
+    public void listarPartido() {
         principalController.listarPartido();
     }
     

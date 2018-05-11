@@ -79,5 +79,13 @@ public class TelaPartido {
         }
         
     }
+
+    public void jaCadastrado() {
+        System.out.println("Erro ao cadastrar o partido. Partido já cadastrado!!");
+    }
+
+    public void removeuPartido() {
+        System.out.println("Partido removido com sucesso!!");
+    }
     
 }

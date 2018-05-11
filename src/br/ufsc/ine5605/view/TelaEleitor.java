@@ -86,6 +86,14 @@ public class TelaEleitor {
         }
         eleitorController.voltarAoMenuPrincipal();
     }
+
+    public void erroDeCadastro() {
+        System.out.println("Não foi possivel cadastrar. Numero já cadastrado!!");
+    }
+
+    public void removeu() {
+        System.out.println("Eleitor removido com sucesso!!");
+    }
     
     
 

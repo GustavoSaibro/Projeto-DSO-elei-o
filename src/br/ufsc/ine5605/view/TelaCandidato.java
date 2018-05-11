@@ -73,7 +73,7 @@ public class TelaCandidato {
         
         System.out.println("Qual é o nome da cidade?");
         nomeCidade = teclado.next();
-        candidatoController.listaPartido();
+        candidatoController.listarPartido();
         System.out.println("Digite o numero do Partido:");
         numeroPartido = teclado.nextInt();
         System.out.println("Qual é o cargo do candidato?");
