@@ -1,6 +1,6 @@
 package br.ufsc.ine5605.view;
 
-import br.ufsc.ine5605.controller.VotacaoController;
+import br.ufsc.ine5605.controller.ControladorVotacao;
 import java.util.Scanner;
 
 /**
@@ -10,13 +10,13 @@ import java.util.Scanner;
 public class TelaVotacao {
     
     private Scanner teclado;
-    private VotacaoController votacaoController;
+    private ControladorVotacao votacaoController;
 
     public TelaVotacao() {
         teclado = new Scanner(System.in);
     }
     
-    public TelaVotacao(VotacaoController votacaoController) {
+    public TelaVotacao(ControladorVotacao votacaoController) {
         teclado = new Scanner(System.in);
         this.votacaoController = votacaoController;
     }

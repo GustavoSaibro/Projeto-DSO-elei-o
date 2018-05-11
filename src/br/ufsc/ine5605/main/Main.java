@@ -1,10 +1,10 @@
 package br.ufsc.ine5605.main;
 
-import br.ufsc.ine5605.controller.PrincipalController;
+import br.ufsc.ine5605.controller.ControladorPrincipal;
 
 public class Main {
 	public static void main(String[] args) {
-		PrincipalController principalController = new PrincipalController();
+		ControladorPrincipal principalController = new ControladorPrincipal();
 		principalController.iniciaSistema();
 		
 	}

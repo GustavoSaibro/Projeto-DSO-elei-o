@@ -8,13 +8,13 @@ import br.ufsc.ine5605.model.Partido;
 import br.ufsc.ine5605.view.TelaCandidato;
 import java.util.ArrayList;
 
-public class CandidatoController {
+public class ControladorCandidato {
     private ArrayList<Candidato> candidatos;
     private Candidato candidato;
     private TelaCandidato telaCandidato;
-    private PrincipalController principalController;
+    private ControladorPrincipal principalController;
    
-    public CandidatoController(PrincipalController principalController){
+    public ControladorCandidato(ControladorPrincipal principalController){
         this.principalController = principalController;
         telaCandidato = new TelaCandidato(this);
         candidatos = new ArrayList<>();

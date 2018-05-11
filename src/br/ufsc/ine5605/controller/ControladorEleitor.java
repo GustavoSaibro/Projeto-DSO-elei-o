@@ -6,14 +6,14 @@ import br.ufsc.ine5605.model.Partido;
 import br.ufsc.ine5605.view.TelaEleitor;
 import java.util.ArrayList;
 
-public class EleitorController {
+public class ControladorEleitor {
 
     private Eleitor eleitor;
     private ArrayList<Eleitor> eleitores;
     private TelaEleitor telaEleitor;
-    private PrincipalController principalController;
+    private ControladorPrincipal principalController;
 
-    public EleitorController(PrincipalController principalController) {
+    public ControladorEleitor(ControladorPrincipal principalController) {
         this.principalController = principalController;
         telaEleitor = new TelaEleitor(this);
         eleitores = new ArrayList<>();

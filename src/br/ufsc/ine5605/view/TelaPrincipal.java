@@ -2,14 +2,14 @@ package br.ufsc.ine5605.view;
 
 import java.util.Scanner;
 
-import br.ufsc.ine5605.controller.PrincipalController;
+import br.ufsc.ine5605.controller.ControladorPrincipal;
 
 public class TelaPrincipal {
 
     private Scanner teclado;
-    private PrincipalController principalController;
+    private ControladorPrincipal principalController;
 
-    public TelaPrincipal(PrincipalController principalController) {
+    public TelaPrincipal(ControladorPrincipal principalController) {
         this.principalController = principalController;
     }
 
