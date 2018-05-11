@@ -62,10 +62,15 @@ public class TelaUrna {
         urnaController.cadastrarUrna(secao, cidadeUrna);
         urnaController.voltarAoMenuPrincipal();
     }
-    public void excluirUrna(){}
+    public void excluirUrna(){
+    
+    
+    }
+    
+    
     public void listarUrnas(ArrayList<Urna> urnas){
         for (int i = 0; i < urnas.size(); i++) {
-            System.out.println(urnas.get(i).getSecao() + " " + urnas.get(i).getCidade());
+            System.out.println("Urna Seção:"+urnas.get(i).getSecao() + ", Cidade :" + urnas.get(i).getCidade().getNome());
 
         }
     }
