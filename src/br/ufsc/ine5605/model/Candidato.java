@@ -15,6 +15,16 @@ public class Candidato extends Pessoa {
     private Cargo cargo;
     private int numeroCandidato;
     private int numeroDeVotos;
+    private int numeroPartido;
+
+    public int getNumeroPartido() {
+        return numeroPartido;
+    }
+
+    public void setNumeroPartido(int numeroPartido) {
+        this.numeroPartido = numeroPartido;
+    }
+    
 
     public int getNumeroDeVotos() {
         return numeroDeVotos;

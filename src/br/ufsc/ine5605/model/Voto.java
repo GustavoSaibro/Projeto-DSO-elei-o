@@ -14,11 +14,13 @@ public class Voto {
     private Eleitor eleitor;
     private Candidato candidato;
     private Urna urna;
+    private Cargo cargo;
 
-    public Voto(Eleitor eleitor, Candidato candidato, Urna urna) {
+    public Voto(Eleitor eleitor, Candidato candidato, Urna urna, Cargo cargo) {
         this.eleitor = eleitor;
         this.candidato = candidato;
         this.urna = urna;
+        this.cargo = cargo;
     }
     
     public Voto(){}
@@ -26,6 +28,15 @@ public class Voto {
     public Eleitor getEleitor() {
         return eleitor;
     }
+
+    public Cargo getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
+    }
+    
 
     public Candidato getCandidato() {
         return candidato;

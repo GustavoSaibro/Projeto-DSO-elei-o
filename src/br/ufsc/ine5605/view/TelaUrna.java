@@ -20,16 +20,13 @@ public class TelaUrna {
     private Scanner teclado;
     private ControladorUrna controladorUrna;
 
-    public TelaUrna() {
-        teclado = new Scanner(System.in);
-    }
-
     public TelaUrna(ControladorUrna controladorUrna) {
         teclado = new Scanner(System.in);
         this.controladorUrna = controladorUrna;
     }
     
     public void opcoesUrna(){
+        teclado = new Scanner(System.in);
         int opcao = 0;
         System.out.println("--------- OPÇÕES DE URNA ---------");
         System.out.println("----------------------------------");
@@ -63,6 +60,7 @@ public class TelaUrna {
     }
     
     public void cadastrarUrna(){
+        teclado = new Scanner(System.in);
         int secao = 0;
         String cidadeUrna = " ";
         System.out.println("Digite a seção da urna");

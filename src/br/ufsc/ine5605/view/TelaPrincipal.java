@@ -26,6 +26,7 @@ public class TelaPrincipal {
         System.out.println("---Tecle 3 - Para Opções de Partido----");
         System.out.println("--------Tecle 4 - Para votação---------");
         System.out.println("--------Tecle 5 - Para eleitor---------");
+        System.out.println("--------Tecle 6 - Para apurações-------");
 
         opcao = teclado.nextInt();
 
@@ -44,6 +45,9 @@ public class TelaPrincipal {
                 break;
             case 5:
                 principalController.iniciarEleitor();
+                break;
+            case 6:
+                principalController.iniciarApuracao();
                 break;
             default:
                 erroOpcoes();
