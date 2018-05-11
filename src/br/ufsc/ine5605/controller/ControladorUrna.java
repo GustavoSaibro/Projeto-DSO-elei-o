@@ -15,11 +15,12 @@ public class ControladorUrna {
     private ControladorPrincipal principalController;
 
     
-    public ControladorUrna(ControladorPrincipal principalController, ControladorCandidato candidatoController) {
+    public ControladorUrna(ControladorPrincipal principalController) {
         urnas = new ArrayList<>();
         this.principalController = principalController;
         telaUrna = new TelaUrna(this);     
     }
+
 
     public void iniciarTelaUrna() {
         telaUrna.opcoesUrna();
@@ -44,6 +45,8 @@ public class ControladorUrna {
                 }
             }
         }
+        
+        listarUrnas();
 
     }
 
@@ -65,8 +68,12 @@ public class ControladorUrna {
         return urna;
     }
     
-    public ArrayList urnasCadastradas(){
-        return urnas;
+    public void listarUrnas(){
+        telaUrna.listarUrnas(urnas);
+    }
+
+    public void voltarAoMenuPrincipal() {
+        principalController.iniciaSistema();
     }
     
     

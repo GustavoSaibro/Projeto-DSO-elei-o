@@ -50,7 +50,9 @@ public class TelaVotacao {
         opcoesVotacao();
     }
     
-    private void votar(){}
+    private void votar(){
+    
+    }
     
     private void voltar(){}
     

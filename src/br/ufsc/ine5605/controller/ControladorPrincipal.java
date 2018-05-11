@@ -19,6 +19,7 @@ public class ControladorPrincipal {
             partidoController = new ControladorPartido(this);
             eleitorController = new ControladorEleitor(this);
             candidatoController = new ControladorCandidato(this);
+            urnaController = new ControladorUrna(this);
 
 	}
 
@@ -56,7 +57,7 @@ public class ControladorPrincipal {
 		
 	}
 	public void iniciarVotacao(){
-		System.out.println("iniciou vota��o");
+		votacaoController.iniciarTelaVotacao();
 		
 	}
 

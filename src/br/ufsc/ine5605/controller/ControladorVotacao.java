@@ -13,11 +13,14 @@ public class ControladorVotacao {
     private ControladorPrincipal principalController;
 
 
-    public ControladorVotacao(TelaVotacao telaVotacao,ControladorPrincipal principalController) {
-        this.telaVotacao = telaVotacao;        
+    public ControladorVotacao(ControladorPrincipal principalController) {
+        this.telaVotacao = new TelaVotacao(this);        
         this.principalController = principalController; 
     }
     
+    public void iniciarTelaVotacao(){
+        telaVotacao.opcoesVotacao();
+    }
     
     public void votar(int titulo, int numeroCandidato){
         ArrayList candidatos = principalController.mostraCandidatos();

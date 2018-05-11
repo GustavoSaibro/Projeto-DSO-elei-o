@@ -35,10 +35,10 @@ public class TelaCandidato {
 		System.out.println("");
                 System.out.println("O que você deseja fazer?");
 		System.out.println("");
-		System.out.println("");
 		System.out.println("1- Para Cadastrar Candidato");
 		System.out.println("2- Para Excluir Candidato---");
 		System.out.println("3- Para Listar Candidatos");
+		System.out.println("4- Para Voltar");
 		System.out.println("");
                 
 		opcao = teclado.nextInt();
@@ -52,7 +52,10 @@ public class TelaCandidato {
                     break;
 		case 3:
                     candidatoController.listarCandidato();
-                    break;		
+                    break;
+                case 4:
+                    candidatoController.voltarAoMenuPrincipal();
+                    break;
 		default:
                         erroOpcoes();
 			break;
