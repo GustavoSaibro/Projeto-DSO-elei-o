@@ -6,6 +6,8 @@
 package br.ufsc.ine5605.view;
 
 import br.ufsc.ine5605.controller.ControladorUrna;
+import br.ufsc.ine5605.model.Urna;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -45,7 +47,7 @@ public class TelaUrna {
                 break;
             
             case 3:
-                listarUrnas();
+                urnaController.listarUrnas();
                 break;
         }
     }
@@ -58,9 +60,15 @@ public class TelaUrna {
         cidadeUrna = teclado.next();
         
         urnaController.cadastrarUrna(secao, cidadeUrna);
+        urnaController.voltarAoMenuPrincipal();
     }
     public void excluirUrna(){}
-    public void listarUrnas(){}
+    public void listarUrnas(ArrayList<Urna> urnas){
+        for (int i = 0; i < urnas.size(); i++) {
+            System.out.println(urnas.get(i).getSecao() + " " + urnas.get(i).getCidade());
+
+        }
+    }
 
     public void urnaJaCadastrada() {
         System.out.println("Urna com esta secão já cadastrada!!");
