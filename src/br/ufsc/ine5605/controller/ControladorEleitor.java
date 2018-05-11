@@ -26,6 +26,11 @@ public class ControladorEleitor {
     }
 
     public void cadastrarEleitor(String nomeEleitor, int zonaEleitoral, String nomeCidade, int titulo, int secao) {
+        if (nomeCidade.charAt(0) == 'f' || nomeCidade.charAt(0) == 'F') {
+            nomeCidade = "florianopolis";
+        } else {
+            nomeCidade = "saojose";
+        }
         // CRIA UMA NOVA CIDADE
         Cidade c = new Cidade();
         c.setNome(nomeCidade);

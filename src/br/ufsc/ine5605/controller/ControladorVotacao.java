@@ -32,12 +32,14 @@ public class ControladorVotacao {
         boolean achouVoto = false;
         for (int i = 0; i < votos.size(); i++) {
             if (votos.get(i).getCandidato().getNumeroCandidato() == numeroCandidato && votos.get(i).getUrna().getSecao() == secaoEleitoral) {
+                votos.get(i).getCandidato().setNumeroDeVotos(votos.get(i).getCandidato().getNumeroDeVotos() + 1);
                 achouVoto = true;
             }
         }
         if (!achouVoto) {
             voto = new Voto();
             voto.setCandidato(principalController.findCandidatoByNumero(numeroCandidato));
+            voto.getCandidato().setNumeroDeVotos(voto.getCandidato().getNumeroDeVotos() + 1);
             voto.setEleitor(principalController.findEleitorByTitulo(titulo));
             voto.setUrna(principalController.findUrnaBySecao(secaoEleitoral));
             voto.setCargo(cargo);

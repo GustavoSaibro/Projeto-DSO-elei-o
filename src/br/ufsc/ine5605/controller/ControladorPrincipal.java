@@ -118,7 +118,7 @@ public class ControladorPrincipal {
         if (escolhaCidade == 1) {
             cidade = "florianopolis";
         }else{
-            cidade = "sao jose";
+            cidade = "saojose";
         }
         ArrayList<Urna> urnasDaCidade = findUrnasByCidade(cidade);
         votacaoController.findVotosByCidade(urnasDaCidade);
