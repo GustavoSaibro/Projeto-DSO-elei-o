@@ -45,9 +45,6 @@ public class TelaVotacao {
                 erroOpcoes();
                 break;
         }
-        
-       
-        
     }
     
     

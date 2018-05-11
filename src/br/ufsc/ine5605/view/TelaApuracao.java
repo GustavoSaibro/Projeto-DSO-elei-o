@@ -22,7 +22,7 @@ public class TelaApuracao {
     }
 
    public void opcoesApuracao(){
-       int opcao = 0;
+       int opcao;
        System.out.println("Opções de apuração");
        System.out.println("Digite 1 para apurar uma urna");
        System.out.println("Digite 2 para apuração geral");
@@ -36,18 +36,24 @@ public class TelaApuracao {
                secao = teclado.nextInt();
                controladorPrincipal.listarVotosByUrna(secao);
               break;
-           case 2:
+            case 2:
                int escolhaCidade = 0;
                System.out.println("Qual cidade deseja fazer a apuração?");
                System.out.println("Digite 1 para Floripa");
                System.out.println("Digite 2 para São José");
-               
                escolhaCidade = teclado.nextInt();
-               
                controladorPrincipal.listarVotosByCidade(escolhaCidade);
                break;
+            default:
+                erroOpcoes();
+                break;
        }
    } 
+   
+   private void erroOpcoes(){
+        System.out.println("Voce digitou um valor não valido!");
+        opcoesApuracao();
+    }
     
     
 }
