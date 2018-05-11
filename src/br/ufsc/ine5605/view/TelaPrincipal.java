@@ -26,7 +26,13 @@ public class TelaPrincipal {
         System.out.println("---Tecle 3 - Para Opções de Partido----");
         System.out.println("--------Tecle 4 - Para votação---------");
         System.out.println("--------Tecle 5 - Para eleitor---------");
-        opcao = teclado.nextInt();
+        
+        
+        
+        try{
+        
+            opcao = teclado.nextInt();
+        
         
         
         switch (opcao) {
@@ -50,6 +56,11 @@ public class TelaPrincipal {
                 break;
         }
 
+    }
+        catch(Exception e){
+            
+        }
+    
     }
 
     private void erroOpcoes() {
