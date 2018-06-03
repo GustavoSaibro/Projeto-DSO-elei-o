@@ -27,6 +27,7 @@ public class ControladorCandidato {
     public void cadastrarCandidato(int numeroPartido, Cargo cargo, String nomeCandidato, int numeroCandidato, String nomeCidade){
         Partido p = principalController.findPartidoByNumero(numeroPartido);
         Cidade c = new Cidade();
+        
         if (nomeCidade.charAt(0) == 'f' || nomeCidade.charAt(0) == 'F') {
             nomeCidade = "florianopolis";
         } else {
