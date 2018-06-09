@@ -31,7 +31,7 @@ public class ControladorVotacao {
     public void votar(int titulo, int numeroCandidato, int secaoEleitoral, Cargo cargo){
         boolean achouVoto = false;
         for (int i = 0; i < votos.size(); i++) {
-            if (votos.get(i).getCandidato().getNumeroCandidato() == numeroCandidato && votos.get(i).getUrna().getSecao() == secaoEleitoral) {
+            if (votos.get(i).getCandidato().getNumeroCandidato() == numeroCandidato) {
                 votos.get(i).getCandidato().setNumeroDeVotos(votos.get(i).getCandidato().getNumeroDeVotos() + 1);
                 achouVoto = true;
             }

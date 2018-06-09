@@ -8,7 +8,7 @@ public class TelaPrincipal {
 
     private Scanner teclado;
     private ControladorPrincipal principalController;
-
+/*
     public TelaPrincipal(ControladorPrincipal principalController) {
         this.principalController = principalController;
     }
@@ -69,5 +69,5 @@ public class TelaPrincipal {
         System.out.println("Voce digitou um valor não valido!");
         iniciarTelaPrincipal();
     }
-
+*/
 }

@@ -6,6 +6,7 @@ import br.ufsc.ine5605.model.Partido;
 import br.ufsc.ine5605.model.Urna;
 import br.ufsc.ine5605.view.TelaApuracao;
 import br.ufsc.ine5605.view.TelaPrincipal;
+import br.ufsc.ine5605.view.TelaPrincipalG;
 import java.util.ArrayList;
 
 public class ControladorPrincipal {
@@ -14,11 +15,11 @@ public class ControladorPrincipal {
 	private ControladorCandidato candidatoController;
 	private ControladorEleitor eleitorController;
 	private ControladorVotacao votacaoController;
-	private TelaPrincipal telaPrincipal;
+	private TelaPrincipalG telaPrincipal;
         private TelaApuracao telaApuracao;
 	
 	public ControladorPrincipal(){
-            telaPrincipal = new TelaPrincipal(this);
+            telaPrincipal = new TelaPrincipalG();
             partidoController = new ControladorPartido(this);
             eleitorController = new ControladorEleitor(this);
             candidatoController = new ControladorCandidato(this);
@@ -42,7 +43,7 @@ public class ControladorPrincipal {
 	}
 	
 	public void iniciaSistema(){
-		telaPrincipal.iniciarTelaPrincipal();
+		telaPrincipal.iniciaTelaPrincipal();
 	}
 	
 	public void iniciarPartido(){
