@@ -17,33 +17,22 @@ public class ControladorPrincipal {
 	private ControladorVotacao votacaoController;
 	private TelaPrincipalG telaPrincipal;
         private TelaApuracao telaApuracao;
+        private static ControladorPrincipal instanciaPrincipal = new ControladorPrincipal();
 	
 	public ControladorPrincipal(){
             telaPrincipal = new TelaPrincipalG();
-            partidoController = new ControladorPartido(this);
-            eleitorController = new ControladorEleitor(this);
-            candidatoController = new ControladorCandidato(this);
-            urnaController = new ControladorUrna(this);
             telaApuracao = new TelaApuracao(this);
-            votacaoController = new ControladorVotacao(this);
-
 	}
-
-	public ControladorPrincipal(ControladorPartido controladorPartido,
-			ControladorUrna urnaController,
-			ControladorCandidato candidatoController,
-			ControladorEleitor eleitorController,
-			ControladorVotacao votacaoController) {
-		super();
-		this.partidoController = controladorPartido;
-		this.urnaController = urnaController;
-		this.candidatoController = candidatoController;
-		this.eleitorController = eleitorController;
-		this.votacaoController = votacaoController;
-	}
+        
+        public static ControladorPrincipal getInstancia(){
+            if(instanciaPrincipal == null){
+                instanciaPrincipal = new ControladorPrincipal();
+            }
+            return instanciaPrincipal;
+        }
 	
 	public void iniciaSistema(){
-		telaPrincipal.iniciaTelaPrincipal();
+            telaPrincipal.iniciaTelaPrincipal();
 	}
 	
 	public void iniciarPartido(){
@@ -59,11 +48,11 @@ public class ControladorPrincipal {
 	}
 	public void iniciarCandidato(){
             
-            candidatoController.iniciarTelaCandidato();
+            ControladorCandidato.getInstancia().iniciarTelaCandidato();
 		
 	}
 	public void iniciarVotacao(){
-		votacaoController.iniciarTelaVotacao();
+            votacaoController.iniciarTelaVotacao();
 
 	}
         public void iniciarApuracao(){
@@ -95,11 +84,11 @@ public class ControladorPrincipal {
     }
     
     public Candidato findCandidatoByNumero(int numeroCandidato){
-        return candidatoController.findCandidatoByNumero(numeroCandidato);
+        return ControladorCandidato.getInstancia().findCandidatoByNumero(numeroCandidato);
     }
 
     public void listarCandidato() {
-        candidatoController.listarCandidato();
+        ControladorCandidato.getInstancia().listarCandidato();
     }
 
     public void listarUrna() {

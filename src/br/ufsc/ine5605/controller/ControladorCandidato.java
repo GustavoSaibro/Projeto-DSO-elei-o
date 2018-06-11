@@ -12,20 +12,29 @@ public class ControladorCandidato {
     private ArrayList<Candidato> candidatos;
     private Candidato candidato;
     private TelaCandidato telaCandidato;
-    private ControladorPrincipal principalController;
+    //private ControladorPrincipal principalController;
+    private static ControladorCandidato instanciaCandidato = new ControladorCandidato();
    
-    public ControladorCandidato(ControladorPrincipal principalController){
-        this.principalController = principalController;
+    private ControladorCandidato(){
+    //    this.principalController = principalController;
         telaCandidato = new TelaCandidato(this);
         candidatos = new ArrayList<>();
     }
+    
+    public static ControladorCandidato getInstancia(){
+        if(instanciaCandidato == null){
+            instanciaCandidato = new ControladorCandidato();
+        }
+        return instanciaCandidato;
+    }
+    
     
     public void iniciarTelaCandidato(){
         telaCandidato.opcoesCandidato();
     }
     
     public void cadastrarCandidato(int numeroPartido, Cargo cargo, String nomeCandidato, int numeroCandidato, String nomeCidade){
-        Partido p = principalController.findPartidoByNumero(numeroPartido);
+        Partido p = ControladorPrincipal.getInstancia().findPartidoByNumero(numeroPartido);
         Cidade c = new Cidade();
         
         if (nomeCidade.charAt(0) == 'f' || nomeCidade.charAt(0) == 'F') {
@@ -47,7 +56,7 @@ public class ControladorCandidato {
     }
 
     public void listaPartido() {
-        principalController.listarPartido();
+        ControladorPrincipal.getInstancia().listarPartido();
     }
     
     public void listarCandidato(){
@@ -55,7 +64,7 @@ public class ControladorCandidato {
     }
     
     public void voltarAoMenuPrincipal(){
-        principalController.iniciaSistema();
+        ControladorPrincipal.getInstancia().iniciaSistema();
     }
 
     ArrayList getCandidatos() {

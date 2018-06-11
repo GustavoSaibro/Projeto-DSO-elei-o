@@ -11,13 +11,16 @@ public class ControladorEleitor {
     private Eleitor eleitor;
     private ArrayList<Eleitor> eleitores;
     private TelaEleitor telaEleitor;
-    private ControladorPrincipal principalController;
+    private static ControladorEleitor instanciaEleitor = new ControladorEleitor();
 
-    public ControladorEleitor(ControladorPrincipal principalController) {
-        this.principalController = principalController;
-        telaEleitor = new TelaEleitor(this);
-        eleitores = new ArrayList<>();
-
+    public ControladorEleitor() {
+    }
+    
+    public static ControladorEleitor getInstancia(){
+        if(instanciaEleitor == null){
+            instanciaEleitor = new ControladorEleitor();
+        }
+        return instanciaEleitor;
     }
 
     public void iniciaTelaEleitor() {
@@ -89,7 +92,7 @@ public class ControladorEleitor {
     }
 
     public void voltarAoMenuPrincipal() {
-        principalController.iniciaSistema();
+        ControladorPrincipal.getInstancia().iniciaSistema();
 
     }
 

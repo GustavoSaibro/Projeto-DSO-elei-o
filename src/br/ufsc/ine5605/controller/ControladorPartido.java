@@ -9,12 +9,18 @@ public class ControladorPartido {
     private ArrayList<Partido> partidos;
     private Partido partido;
     private TelaPartido telaPartido;
-    private ControladorPrincipal principalController;
+    private static ControladorPartido instanciaPartido = new ControladorPartido();
 
-    public ControladorPartido(ControladorPrincipal principalController) {
-        this.principalController = principalController;
+    public ControladorPartido() {
         partidos = new ArrayList<>();
         telaPartido = new TelaPartido(this);
+    }
+    
+    public static ControladorPartido getInstancia(){
+        if(instanciaPartido == null){
+            instanciaPartido = new ControladorPartido();
+        }        
+        return instanciaPartido;
     }
 
     public void iniciaTelaPartido() {
@@ -66,7 +72,7 @@ public class ControladorPartido {
     }
 
     public void voltarAoMenuPrincipal() {
-        principalController.iniciaSistema();
+        ControladorPrincipal.getInstancia().iniciaSistema();
     }
 
     ArrayList getPartidos() {
