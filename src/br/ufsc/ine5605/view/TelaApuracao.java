@@ -36,7 +36,6 @@ public class TelaApuracao {
                controladorPrincipal.listarUrna();
                System.out.println("Digite a secao da urna que deseja apurar");
                secao = teclado.nextInt();
-               controladorPrincipal.listarVotosByUrna(secao);
               break;
             case 2:
                int escolhaCidade = 0;
@@ -44,7 +43,6 @@ public class TelaApuracao {
                System.out.println("Digite 1 para Floripa");
                System.out.println("Digite 2 para São José");
                escolhaCidade = teclado.nextInt();
-               controladorPrincipal.listarVotosByCidade(escolhaCidade);
                break;
             default:
                 erroOpcoes();

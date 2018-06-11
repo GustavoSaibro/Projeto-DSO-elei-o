@@ -12,11 +12,9 @@ public class ControladorCandidato {
     private ArrayList<Candidato> candidatos;
     private Candidato candidato;
     private TelaCandidato telaCandidato;
-    //private ControladorPrincipal principalController;
     private static ControladorCandidato instanciaCandidato = new ControladorCandidato();
    
     private ControladorCandidato(){
-    //    this.principalController = principalController;
         telaCandidato = new TelaCandidato(this);
         candidatos = new ArrayList<>();
     }
