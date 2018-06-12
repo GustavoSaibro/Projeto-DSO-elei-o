@@ -51,9 +51,11 @@ public class TelaPrincipalG extends JFrame {
     public void iniciaTelaPrincipal() {
         Container container = getContentPane();
         container.setLayout(new GridBagLayout());
+        
+        btManager = new GerenciadorDeBotao();
 
         GridBagConstraints bgc = new GridBagConstraints();
-        
+
         label = new JLabel();
         label.setName("Opções:");
         container.add(label);
@@ -61,8 +63,6 @@ public class TelaPrincipalG extends JFrame {
         if (shouldFill) {
             bgc.fill = GridBagConstraints.HORIZONTAL;
         }
-
-        
 
         //label.setText("Menu de opções:");
         botao1 = new JButton();
@@ -102,7 +102,7 @@ public class TelaPrincipalG extends JFrame {
         bgc.gridx = 1;
         bgc.gridy = 1;
         container.add(botao5, bgc);
-        
+
         botao6 = new JButton();
         //bgc.ipady = 4;
         bgc.weightx = 0.5;
@@ -118,14 +118,13 @@ public class TelaPrincipalG extends JFrame {
         botao5.setText("Opções do Eleitor");
         botao6.setText("Opções da Apuração");
 
-       // container.add(label);
+        // container.add(label);
         //container.add(botao1);
         //container.add(botao2);
         //container.add(botao3);
         //container.add(botao4);
         //container.add(botao5);
         //container.add(botao6);
-
         setSize(500, 250);
 
         botao1.addActionListener(btManager);
@@ -136,6 +135,13 @@ public class TelaPrincipalG extends JFrame {
         botao4.setActionCommand("4");
         botao5.setActionCommand("5");
         botao6.setActionCommand("6");
+
+        botao1.addActionListener(btManager);
+        botao2.addActionListener(btManager);
+        botao3.addActionListener(btManager);
+        botao4.addActionListener(btManager);
+        botao5.addActionListener(btManager);
+        botao6.addActionListener(btManager);
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
@@ -148,19 +154,17 @@ public class TelaPrincipalG extends JFrame {
      */
     private class GerenciadorDeBotao implements ActionListener {
 
+        String opcao = "";
+
         @Override
         public void actionPerformed(ActionEvent ae) {
-            JOptionPane.showMessageDialog(null, "Botão pressionado: " + ae.getActionCommand(), "", 6);
-            botao1.addActionListener(this);
-            botao2.addActionListener(this);
-            botao3.addActionListener(this);
-            botao4.addActionListener(this);
-            botao5.addActionListener(this);
-            botao6.addActionListener(this);
+            //JOptionPane.showMessageDialog(null, "Botão pressionado: " + ae.getActionCommand(), "", 6);
+        
 
-            switch ("") {
+            switch (opcao) {
                 case "1":
-                    principalController.iniciarUrna();
+                    //principalController.iniciarUrna();
+                    JOptionPane.showMessageDialog(null, "Botão pressionado: " + ae.getActionCommand(), "", 6);
                     break;
                 case "2":
                     principalController.iniciarCandidato();
