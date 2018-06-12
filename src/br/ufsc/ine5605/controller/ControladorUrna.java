@@ -12,13 +12,18 @@ public class ControladorUrna {
     private ArrayList<Urna> urnas;
     private Urna urna;
     private TelaUrna telaUrna;
-    private ControladorPrincipal principalController;
-
+    private static ControladorUrna instanciaUrna = new ControladorUrna();
     
-    public ControladorUrna(ControladorPrincipal principalController) {
+    public ControladorUrna() {
         urnas = new ArrayList<>();
-        this.principalController = principalController;
         telaUrna = new TelaUrna(this);     
+    }
+    
+    public static ControladorUrna getInstancia(){
+        if(instanciaUrna == null){
+            instanciaUrna = new ControladorUrna();
+        }
+        return instanciaUrna;
     }
 
 
@@ -45,9 +50,7 @@ public class ControladorUrna {
                 }
             }
         }
-        
         listarUrnas();
-
     }
 
     public void excluirUrna(int secao) {
@@ -73,7 +76,7 @@ public class ControladorUrna {
     }
 
     public void voltarAoMenuPrincipal() {
-        principalController.iniciaSistema();
+        ControladorPrincipal.getInstancia().iniciaSistema();
     }
 
     public ArrayList<Urna> findUrnaByCidade(String cidade) {

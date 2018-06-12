@@ -5,12 +5,16 @@
  */
 package br.ufsc.ine5605.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Gustavo
  */
-public class Candidato extends Pessoa {
+public class Candidato extends Pessoa implements Serializable{
 
+    private static final long serialVersionUID = 1L;
+    
     private Partido partido;
     private Cargo cargo;
     private int numeroCandidato;

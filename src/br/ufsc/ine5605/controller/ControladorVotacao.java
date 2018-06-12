@@ -14,14 +14,20 @@ public class ControladorVotacao {
 
     private TelaVotacao telaVotacao;
     private ArrayList<Urna> urnas;
-    private ControladorPrincipal principalController;
     private Voto voto;
     private ArrayList<Voto> votos;
-
-    public ControladorVotacao(ControladorPrincipal principalController) {
+    private static ControladorVotacao instanciaVotacao = new ControladorVotacao();
+    
+    public ControladorVotacao() {
         this.telaVotacao = new TelaVotacao(this);        
-        this.principalController = principalController; 
         votos = new ArrayList<>();
+    }
+    
+    public static ControladorVotacao getInstancia(){
+        if(instanciaVotacao == null){
+            instanciaVotacao = new ControladorVotacao();
+        }
+        return instanciaVotacao;
     }
     
     public void iniciarTelaVotacao(){
@@ -38,10 +44,10 @@ public class ControladorVotacao {
         }
         if (!achouVoto) {
             voto = new Voto();
-            voto.setCandidato(principalController.findCandidatoByNumero(numeroCandidato));
+            voto.setCandidato(ControladorPrincipal.getInstancia().findCandidatoByNumero(numeroCandidato));
             voto.getCandidato().setNumeroDeVotos(voto.getCandidato().getNumeroDeVotos() + 1);
-            voto.setEleitor(principalController.findEleitorByTitulo(titulo));
-            voto.setUrna(principalController.findUrnaBySecao(secaoEleitoral));
+            voto.setEleitor(ControladorPrincipal.getInstancia().findEleitorByTitulo(titulo));
+            voto.setUrna(ControladorPrincipal.getInstancia().findUrnaBySecao(secaoEleitoral));
             voto.setCargo(cargo);
             votos.add(voto);
         }
@@ -50,15 +56,15 @@ public class ControladorVotacao {
      }
 
     public void listarCandidato() {
-        principalController.listarCandidato();
+        ControladorPrincipal.getInstancia().listarCandidato();
     }
 
     public void listarUrna() {
-        principalController.listarUrna();
+        ControladorPrincipal.getInstancia().listarUrna();
     }
 
     public void voltarAoMenuPrincipal() {
-        principalController.iniciaSistema();
+        ControladorPrincipal.getInstancia().iniciaSistema();
     }
     
     public void findVotosByUrna(Urna u){
