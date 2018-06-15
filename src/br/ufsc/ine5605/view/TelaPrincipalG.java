@@ -41,7 +41,7 @@ public class TelaPrincipalG extends JFrame {
 
     private ControladorPrincipal principalController;
 
-    private GerenciadorDeBotao btManager;
+    
 
     public TelaPrincipalG() {
         super("Tela Principal");
@@ -51,7 +51,7 @@ public class TelaPrincipalG extends JFrame {
     public void iniciaTelaPrincipal() {
         Container container = getContentPane();
         container.setLayout(new GridBagLayout());
-        
+        GerenciadorDeBotao btManager;        
         btManager = new GerenciadorDeBotao();
 
         GridBagConstraints bgc = new GridBagConstraints();
@@ -118,13 +118,7 @@ public class TelaPrincipalG extends JFrame {
         botao5.setText("Opções do Eleitor");
         botao6.setText("Opções da Apuração");
 
-        // container.add(label);
-        //container.add(botao1);
-        //container.add(botao2);
-        //container.add(botao3);
-        //container.add(botao4);
-        //container.add(botao5);
-        //container.add(botao6);
+      
         setSize(500, 250);
 
         botao1.addActionListener(btManager);
@@ -154,17 +148,13 @@ public class TelaPrincipalG extends JFrame {
      */
     private class GerenciadorDeBotao implements ActionListener {
 
-        String opcao = "";
-
         @Override
-        public void actionPerformed(ActionEvent ae) {
-            //JOptionPane.showMessageDialog(null, "Botão pressionado: " + ae.getActionCommand(), "", 6);
-        
-
+        public void actionPerformed(ActionEvent ae) {            
+            String opcao = ae.getActionCommand();
+            
             switch (opcao) {
                 case "1":
-                    //principalController.iniciarUrna();
-                    JOptionPane.showMessageDialog(null, "Botão pressionado: " + ae.getActionCommand(), "", 6);
+                    principalController.iniciarUrna();                    
                     break;
                 case "2":
                     principalController.iniciarCandidato();

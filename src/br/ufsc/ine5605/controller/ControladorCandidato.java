@@ -6,9 +6,10 @@ import br.ufsc.ine5605.model.Cidade;
 import br.ufsc.ine5605.model.Eleitor;
 import br.ufsc.ine5605.model.Partido;
 import br.ufsc.ine5605.view.TelaCandidato;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ControladorCandidato {
+public class ControladorCandidato{
     private ArrayList<Candidato> candidatos;
     private Candidato candidato;
     private TelaCandidato telaCandidato;
