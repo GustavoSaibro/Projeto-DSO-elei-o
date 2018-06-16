@@ -13,11 +13,9 @@ import java.util.Scanner;
  * @author Felipe
  */
 public class TelaApuracao {
-    private ControladorPrincipal controladorPrincipal;
     private Scanner teclado;
 
-    public TelaApuracao(ControladorPrincipal controladorPrincipal) {
-        this.controladorPrincipal = controladorPrincipal;
+    public TelaApuracao() {
         this.teclado = new Scanner(System.in);
     }
 
@@ -33,7 +31,7 @@ public class TelaApuracao {
        switch(opcao){
            case 1:
                int secao = 0;
-               controladorPrincipal.listarUrna();
+               ControladorPrincipal.getInstancia().listarUrna();
                System.out.println("Digite a secao da urna que deseja apurar");
                secao = teclado.nextInt();
               break;

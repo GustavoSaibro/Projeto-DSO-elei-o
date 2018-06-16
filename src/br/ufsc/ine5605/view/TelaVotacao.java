@@ -16,16 +16,11 @@ import java.util.Scanner;
 public class TelaVotacao {
     
     private Scanner teclado;
-    private ControladorVotacao votacaoController;
 
     public TelaVotacao() {
         teclado = new Scanner(System.in);
     }
-    
-    public TelaVotacao(ControladorVotacao votacaoController) {
-        teclado = new Scanner(System.in);
-        this.votacaoController = votacaoController;
-    }
+ 
     
     public void opcoesVotacao(){
         System.out.println("Opções da Votação");
@@ -72,15 +67,15 @@ public class TelaVotacao {
         } else if(cargoEscolha == 2){
             cargo = Cargo.GOVERNADOR;
         }
-        votacaoController.listarCandidato();
+        ControladorVotacao.getInstancia().listarCandidato();
         System.out.println("Digite o numero do candidato que deseja votar");
         numeroCandidato = teclado.nextInt();
-        votacaoController.listarUrna();
+        ControladorVotacao.getInstancia().listarUrna();
         System.out.println("Digite a seção eleitoral da urna");
         secaoDaUrna = teclado.nextInt();
         
-        votacaoController.votar(titulo, numeroCandidato, secaoDaUrna, cargo);
-        votacaoController.voltarAoMenuPrincipal();
+        ControladorVotacao.getInstancia().votar(titulo, numeroCandidato, secaoDaUrna, cargo);
+        ControladorVotacao.getInstancia().voltarAoMenuPrincipal();
         
     }
     

@@ -12,11 +12,11 @@ public class ControladorPrincipal {
     
     private TelaPrincipalG telaPrincipal;
     private TelaApuracao telaApuracao;
-    private static ControladorPrincipal instanciaPrincipal = new ControladorPrincipal();
+    private static ControladorPrincipal instanciaPrincipal;
 	
     public ControladorPrincipal(){
         telaPrincipal = new TelaPrincipalG();
-        telaApuracao = new TelaApuracao(this);
+        telaApuracao = new TelaApuracao();
     }
         
     public static ControladorPrincipal getInstancia(){

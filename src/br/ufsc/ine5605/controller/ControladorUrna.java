@@ -12,11 +12,11 @@ public class ControladorUrna {
     private ArrayList<Urna> urnas;
     private Urna urna;
     private TelaUrna telaUrna;
-    private static ControladorUrna instanciaUrna = new ControladorUrna();
+    private static ControladorUrna instanciaUrna;
     
     public ControladorUrna() {
         urnas = new ArrayList<>();
-        telaUrna = new TelaUrna(this);     
+        telaUrna = new TelaUrna();     
     }
     
     public static ControladorUrna getInstancia(){

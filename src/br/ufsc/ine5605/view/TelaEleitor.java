@@ -17,14 +17,10 @@ import java.util.Scanner;
 public class TelaEleitor {
 
     private Scanner teclado;
-    private ControladorEleitor eleitorController;
 
     public TelaEleitor() {
     }
 
-    public TelaEleitor(ControladorEleitor eleitorController) {
-        this.eleitorController = eleitorController;
-    }
 
     public void opcoesEleitor() {
         teclado = new Scanner(System.in);
@@ -46,10 +42,10 @@ public class TelaEleitor {
 			ExcluirEleitorByTitulo();
 			break;
 		case 3:
-			eleitorController.ListaEleitores();
+			ControladorEleitor.getInstancia().ListaEleitores();
 			break;
                 case 4:
-                        eleitorController.voltarAoMenuPrincipal();
+                        ControladorEleitor.getInstancia().voltarAoMenuPrincipal();
                         break;
                 default:
                         erroOpcoes();
@@ -83,14 +79,14 @@ public class TelaEleitor {
         System.out.println("Por favor, digite a seção do eleitor");
         secao = teclado.nextInt();
         
-        eleitorController.cadastrarEleitor(nomeEleitor, zonaEleitoral, nomeCidade, titulo,secao);
+        ControladorEleitor.getInstancia().cadastrarEleitor(nomeEleitor, zonaEleitoral, nomeCidade, titulo,secao);
     }
 
     private void ExcluirEleitorByTitulo() {
         int titulo = 0;
         System.out.println("Por favor, digite o título do eleitor que desejas excluir");
         titulo = teclado.nextInt();
-        eleitorController.excluirEleitorByTitulo(titulo);
+        ControladorEleitor.getInstancia().excluirEleitorByTitulo(titulo);
     }
 
     public void listarEleitor(ArrayList<Eleitor> eleitores) {
@@ -98,7 +94,7 @@ public class TelaEleitor {
             System.out.println(eleitores.get(i).getNomePessoa() + " " +
                     eleitores.get(i).getCidade().getNome() + " " + eleitores.get(i).getTituloEleitor());
         }
-        eleitorController.voltarAoMenuPrincipal();
+        ControladorEleitor.getInstancia().voltarAoMenuPrincipal();
     }
 
     public void erroDeCadastro() {

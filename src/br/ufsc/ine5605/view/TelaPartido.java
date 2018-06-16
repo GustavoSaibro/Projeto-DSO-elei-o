@@ -17,11 +17,7 @@ import java.util.Scanner;
  */
 public class TelaPartido {
     private Scanner teclado;
-    private ControladorPartido c;
 
-    public TelaPartido(ControladorPartido c) {
-        this.c = c;
-    }
     
     public void opcoesPartido(){
         teclado = new Scanner(System.in);
@@ -43,10 +39,10 @@ public class TelaPartido {
                 excluirPartido();
                 break;
             case 3:
-                c.listarPartidos();
+                ControladorPartido.getInstancia().listarPartidos();
                 break;
             case 4:
-                c.voltarAoMenuPrincipal();
+                ControladorPartido.getInstancia().voltarAoMenuPrincipal();
                 break;
             default:
                 erroOpcoes();
@@ -66,17 +62,17 @@ public class TelaPartido {
         nomePartido = teclado.next();
         System.out.println("Por favor, digite o número do partido");
         numeroPartido = teclado.nextInt();
-        c.cadastrarPartido(nomePartido, numeroPartido);
-        c.voltarAoMenuPrincipal();
+        ControladorPartido.getInstancia().cadastrarPartido(nomePartido, numeroPartido);
+        ControladorPartido.getInstancia().voltarAoMenuPrincipal();
     }
 
     private void excluirPartido() {
         int numeroPartido = 0;
-        c.listarPartidos();
+        ControladorPartido.getInstancia().listarPartidos();
         System.out.println("Por favor, digite o número do partido que desejas excluir");
         numeroPartido = teclado.nextInt();
-        c.excluirPartido(numeroPartido);
-        c.listarPartidos();
+        ControladorPartido.getInstancia().excluirPartido(numeroPartido);
+        ControladorPartido.getInstancia().listarPartidos();
     }
 
     public void listarPartido(ArrayList<Partido> partidos) {

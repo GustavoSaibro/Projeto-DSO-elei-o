@@ -18,11 +18,9 @@ import java.util.Scanner;
 public class TelaUrna {
     
     private Scanner teclado;
-    private ControladorUrna controladorUrna;
 
-    public TelaUrna(ControladorUrna controladorUrna) {
+    public TelaUrna() {
         teclado = new Scanner(System.in);
-        this.controladorUrna = controladorUrna;
     }
     
     public void opcoesUrna(){
@@ -45,10 +43,10 @@ public class TelaUrna {
                 excluirUrna();
                 break;
             case 3:
-                controladorUrna.listarUrnas();
+                ControladorUrna.getInstancia().listarUrnas();
                 break;
             case 4:
-                controladorUrna.voltarAoMenuPrincipal();
+                ControladorUrna.getInstancia().voltarAoMenuPrincipal();
                 break;
             default:
                 erroOpcoes();
@@ -70,8 +68,8 @@ public class TelaUrna {
         System.out.println("Digite a cidade a qual a urna irá pertencer");
         cidadeUrna = teclado.next();
         
-        controladorUrna.cadastrarUrna(secao, cidadeUrna);
-        controladorUrna.voltarAoMenuPrincipal();
+        ControladorUrna.getInstancia().cadastrarUrna(secao, cidadeUrna);
+        ControladorUrna.getInstancia().voltarAoMenuPrincipal();
     }
     public void excluirUrna(){
     

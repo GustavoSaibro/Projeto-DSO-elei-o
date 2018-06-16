@@ -18,11 +18,6 @@ import java.util.Scanner;
 public class TelaCandidato {
     
     private Scanner teclado;
-    private ControladorCandidato candidatoController;
-    
-    public TelaCandidato(ControladorCandidato candidatoController){
-        this.candidatoController = candidatoController;
-    }
 
     public TelaCandidato() {
     }
@@ -49,10 +44,10 @@ public class TelaCandidato {
                     excluirCandidato();
                     break;
 		case 3:
-                    candidatoController.listarCandidato();
+                    ControladorCandidato.getInstancia().listarCandidato();
                     break;
                 case 4:
-                    candidatoController.voltarAoMenuPrincipal();
+                    ControladorCandidato.getInstancia().voltarAoMenuPrincipal();
                     break;
 		default:
                         erroOpcoes();
@@ -76,7 +71,7 @@ public class TelaCandidato {
         
         System.out.println("Qual é o nome da cidade?");
         nomeCidade = teclado.next();
-        candidatoController.listaPartido();
+        ControladorCandidato.getInstancia().listaPartido();
         teclado = new Scanner(System.in);
         System.out.println("Digite o numero do Partido:");
         numeroPartido = teclado.nextInt();
@@ -95,7 +90,7 @@ public class TelaCandidato {
         System.out.println("Digite o Nome do Candidato:");
         nome = teclado.next();
         
-        candidatoController.cadastrarCandidato(numeroPartido, cargo, nome, numeroPartido, nomeCidade);
+        ControladorCandidato.getInstancia().cadastrarCandidato(numeroPartido, cargo, nome, numeroPartido, nomeCidade);
     }
     
     public void excluirCandidato(){

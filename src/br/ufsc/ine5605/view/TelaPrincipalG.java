@@ -39,7 +39,6 @@ public class TelaPrincipalG extends JFrame {
     private final static boolean shouldWeightX = true;
     private final static boolean RIGHT_TO_LEFT = false;
 
-    private ControladorPrincipal principalController;
 
     
 
@@ -154,22 +153,22 @@ public class TelaPrincipalG extends JFrame {
             
             switch (opcao) {
                 case "1":
-                    principalController.iniciarUrna();                    
+                    ControladorPrincipal.getInstancia().iniciarUrna();                    
                     break;
                 case "2":
-                    principalController.iniciarCandidato();
+                    ControladorPrincipal.getInstancia().iniciarCandidato();
                     break;
                 case "3":
-                    principalController.iniciarPartido();
+                    ControladorPrincipal.getInstancia().iniciarPartido();
                     break;
                 case "4":
-                    principalController.iniciarVotacao();
+                    ControladorPrincipal.getInstancia().iniciarVotacao();
                     break;
                 case "5":
-                    principalController.iniciarEleitor();
+                    ControladorPrincipal.getInstancia().iniciarEleitor();
                     break;
                 case "6":
-                    principalController.iniciarApuracao();
+                    ControladorPrincipal.getInstancia().iniciarApuracao();
                     break;
                 default:
                     break;

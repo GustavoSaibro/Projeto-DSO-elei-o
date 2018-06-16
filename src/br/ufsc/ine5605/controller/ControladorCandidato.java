@@ -13,10 +13,10 @@ public class ControladorCandidato{
     private ArrayList<Candidato> candidatos;
     private Candidato candidato;
     private TelaCandidato telaCandidato;
-    private static ControladorCandidato instanciaCandidato = new ControladorCandidato();
+    private static ControladorCandidato instanciaCandidato;
    
     private ControladorCandidato(){
-        telaCandidato = new TelaCandidato(this);
+        telaCandidato = new TelaCandidato();
         candidatos = new ArrayList<>();
     }
     

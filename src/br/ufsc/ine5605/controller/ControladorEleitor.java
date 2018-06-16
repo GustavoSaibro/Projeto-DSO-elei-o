@@ -11,7 +11,7 @@ public class ControladorEleitor {
     private Eleitor eleitor;
     private ArrayList<Eleitor> eleitores;
     private TelaEleitor telaEleitor;
-    private static ControladorEleitor instanciaEleitor = new ControladorEleitor();
+    private static ControladorEleitor instanciaEleitor;
 
     public ControladorEleitor() {
     }

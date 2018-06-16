@@ -16,10 +16,10 @@ public class ControladorVotacao {
     private ArrayList<Urna> urnas;
     private Voto voto;
     private ArrayList<Voto> votos;
-    private static ControladorVotacao instanciaVotacao = new ControladorVotacao();
+    private static ControladorVotacao instanciaVotacao;
     
     public ControladorVotacao() {
-        this.telaVotacao = new TelaVotacao(this);        
+        this.telaVotacao = new TelaVotacao();        
         votos = new ArrayList<>();
     }
     

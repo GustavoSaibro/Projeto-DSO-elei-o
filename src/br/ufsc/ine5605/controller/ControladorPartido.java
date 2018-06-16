@@ -9,11 +9,11 @@ public class ControladorPartido {
     private ArrayList<Partido> partidos;
     private Partido partido;
     private TelaPartido telaPartido;
-    private static ControladorPartido instanciaPartido = new ControladorPartido();
+    private static ControladorPartido instanciaPartido;
 
     public ControladorPartido() {
         partidos = new ArrayList<>();
-        telaPartido = new TelaPartido(this);
+        telaPartido = new TelaPartido();
     }
     
     public static ControladorPartido getInstancia(){
