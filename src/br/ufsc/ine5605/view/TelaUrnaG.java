@@ -14,6 +14,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import br.ufsc.ine5605.controller.ControladorUrna;
+import br.ufsc.ine5605.model.Urna;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -21,12 +24,16 @@ import javax.swing.JOptionPane;
 import br.ufsc.ine5605.controller.ControladorPrincipal;
 import java.awt.GridBagConstraints;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Gustavo Saibro
  */
 public class TelaUrnaG extends JFrame {
     
+    
+
     private JLabel label;
     private JButton botao0;
     private JButton botao1;
@@ -39,22 +46,26 @@ public class TelaUrnaG extends JFrame {
     private JButton botao8;
     private JButton botao9;
     
+    private JButton confirma;
+    private JButton corrige;
     
+    private JTextField jTextCampNum;
     
+
     private final static boolean shouldFill = true;
     private final static boolean shouldWeightX = true;
     private final static boolean RIGHT_TO_LEFT = false;
-    
-     public TelaUrnaG() {
+
+    public TelaUrnaG() {
         super("Tela da Urna");
     }
-    
-     
-     public void iniciaTelaUrna() {
+
+    public void iniciaTelaUrna() {
         Container container = getContentPane();
         container.setLayout(new GridBagLayout());
-        TelaUrnaG.GerenciadorDeBotao btManager;        
+        TelaUrnaG.GerenciadorDeBotao btManager;
         btManager = new TelaUrnaG.GerenciadorDeBotao();
+        jTextCampNum = new JTextField("",2);
 
         GridBagConstraints bgc = new GridBagConstraints();
 
@@ -66,7 +77,7 @@ public class TelaUrnaG extends JFrame {
             bgc.fill = GridBagConstraints.HORIZONTAL;
         }
 
-         botao0 = new JButton();
+        botao0 = new JButton();
         if (shouldWeightX) {
             bgc.weightx = 0.5;
         }
@@ -74,8 +85,8 @@ public class TelaUrnaG extends JFrame {
         bgc.gridx = 3;
         bgc.gridy = 1;
         container.add(botao1, bgc);
-        
-        botao1 = new JButton();        
+
+        botao1 = new JButton();
         bgc.fill = GridBagConstraints.HORIZONTAL;
         bgc.gridx = 0;
         bgc.gridy = 0;
@@ -95,7 +106,7 @@ public class TelaUrnaG extends JFrame {
         container.add(botao3, bgc);
 
         botao4 = new JButton();
-       
+
         bgc.weightx = 0.5;
         bgc.gridwidth = 1;
         bgc.gridx = 0;
@@ -103,7 +114,7 @@ public class TelaUrnaG extends JFrame {
         container.add(botao4, bgc);
 
         botao5 = new JButton();
-        
+
         bgc.weightx = 0.5;
         bgc.gridwidth = 1;
         bgc.gridx = 1;
@@ -111,56 +122,82 @@ public class TelaUrnaG extends JFrame {
         container.add(botao5, bgc);
 
         botao6 = new JButton();
-        
+
         bgc.weightx = 0.5;
         bgc.gridwidth = 1;
         bgc.gridx = 2;
         bgc.gridy = 1;
         container.add(botao6, bgc);
-        
-         botao7 = new JButton();
-       
+
+        botao7 = new JButton();
+
         bgc.weightx = 0.5;
         bgc.gridwidth = 1;
         bgc.gridx = 0;
         bgc.gridy = 2;
         container.add(botao6, bgc);
-        
-         botao8 = new JButton();
-        
+
+        botao8 = new JButton();
+
         bgc.weightx = 0.5;
         bgc.gridwidth = 1;
         bgc.gridx = 1;
         bgc.gridy = 2;
         container.add(botao6, bgc);
-        
-         botao9 = new JButton();
+
+        botao9 = new JButton();
         //bgc.ipady = 4;
         bgc.weightx = 0.5;
         bgc.gridwidth = 1;
         bgc.gridx = 2;
         bgc.gridy = 2;
         container.add(botao6, bgc);
+        
+        confirma = new JButton();
+        bgc.fill = GridBagConstraints.HORIZONTAL;
+        bgc.gridx = 3;
+        bgc.gridy = 2;
+        container.add(botao1, bgc);
+        
+        corrige = new JButton();
+        bgc.fill = GridBagConstraints.HORIZONTAL;
+        bgc.gridx = 3;
+        bgc.gridy = 0;
+        container.add(botao1, bgc);
+        
+        
+        corrige.setText("CORRIGE");
+        confirma.setText("CONFIRMA");
+        botao0.setText("0");
+        botao1.setText("1");
+        botao2.setText("2");
+        botao3.setText("3");
+        botao4.setText("4");
+        botao5.setText("5");
+        botao6.setText("6");
+        botao7.setText("7");
+        botao8.setText("8");
+        botao9.setText("9");
 
-        botao1.setText("Opções da Urna");
-        botao2.setText("Opções do Candidato");
-        botao3.setText("Opções do Partido");
-        botao4.setText("Opções da Votação");
-        botao5.setText("Opções do Eleitor");
-        botao6.setText("Opções da Apuração");
-
-      
         setSize(500, 250);
 
         botao1.addActionListener(btManager);
 
+        corrige.setActionCommand("CORRIGE");
+        confirma.setActionCommand("CONFIRMA");
+        botao0.setActionCommand("0");
         botao1.setActionCommand("1");
         botao2.setActionCommand("2");
         botao3.setActionCommand("3");
         botao4.setActionCommand("4");
         botao5.setActionCommand("5");
         botao6.setActionCommand("6");
+        botao6.setActionCommand("7");
+        botao6.setActionCommand("8");
+        botao6.setActionCommand("9");
 
+        corrige.addActionListener(btManager);
+        confirma.addActionListener(btManager);
         botao0.addActionListener(btManager);
         botao1.addActionListener(btManager);
         botao2.addActionListener(btManager);
@@ -176,42 +213,72 @@ public class TelaUrnaG extends JFrame {
         setVisible(true);
 
     }
-    
-     
-      private class GerenciadorDeBotao implements ActionListener {
 
+    private class GerenciadorDeBotao implements ActionListener {
+        
         @Override
-        public void actionPerformed(ActionEvent ae) {            
+        public void actionPerformed(ActionEvent ae) {
             String opcao = ae.getActionCommand();
-            
+            opcao = "";
+
             switch (opcao) {
                 case "0":
-                    
+                    opcao = opcao + jTextCampNum.getText();
+                    jTextCampNum.setText(opcao);
                     break;
                 case "1":
-                    ControladorPrincipal.getInstancia().iniciarUrna();                    
+                    opcao = opcao + jTextCampNum.getText();
+                    jTextCampNum.setText(opcao);
                     break;
                 case "2":
-                    ControladorPrincipal.getInstancia().iniciarCandidato();
+                    opcao = opcao + jTextCampNum.getText();
+                    jTextCampNum.setText(opcao);
                     break;
                 case "3":
-                    ControladorPrincipal.getInstancia().iniciarPartido();
+                   opcao = opcao + jTextCampNum.getText();
+                   jTextCampNum.setText(opcao);
                     break;
                 case "4":
-                    ControladorPrincipal.getInstancia().iniciarVotacao();
+                    opcao = opcao + jTextCampNum.getText();
+                    jTextCampNum.setText(opcao);
                     break;
                 case "5":
-                    ControladorPrincipal.getInstancia().iniciarEleitor();
+                    opcao = opcao + jTextCampNum.getText();
+                    jTextCampNum.setText(opcao);
                     break;
                 case "6":
-                    ControladorPrincipal.getInstancia().iniciarApuracao();
+                    opcao = opcao + jTextCampNum.getText();
+                    jTextCampNum.setText(opcao);
+                    break;
+                case "7":
+                    opcao = opcao + jTextCampNum.getText();
+                    jTextCampNum.setText(opcao);
+                    break;
+                case "8":
+                    opcao = opcao + jTextCampNum.getText();
+                    jTextCampNum.setText(opcao);
+                    break;
+                case "9":
+                    opcao = opcao + jTextCampNum.getText();
+                    jTextCampNum.setText(opcao);
+                    break;
+                case"CONFIRMA":
+                    int op = Integer.parseInt(opcap);
+                    ControladorUrna.getInstancia().cadastrarUrna(op, opcao);
+                    break;
+                case "CORRIGE":
+                    opcao.substring(0);
                     break;
                 default:
                     break;
+                    
+                
             }
+            
+            
 
         }
 
     }
-     
+
 }
