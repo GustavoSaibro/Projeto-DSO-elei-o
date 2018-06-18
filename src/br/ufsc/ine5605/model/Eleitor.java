@@ -5,11 +5,13 @@
  */
 package br.ufsc.ine5605.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Gustavo
  */
-public class Eleitor extends Pessoa{
+public class Eleitor extends Pessoa implements Serializable{
     
     private int secao;
     

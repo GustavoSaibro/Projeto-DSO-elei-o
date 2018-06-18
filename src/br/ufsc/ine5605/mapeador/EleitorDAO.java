@@ -3,31 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.ufsc.ine5605.model;
+package br.ufsc.ine5605.mapeador;
 
+
+import br.ufsc.ine5605.model.Eleitor;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
  *
  * @author Gustavo Saibro
  */
-public class CandidatoDAO {
+public class EleitorDAO implements Serializable {
+    
+     private HashMap<Integer, Eleitor> cacheEleitores = new HashMap<>();
+    private final String fileName = "eleitor.dat";
 
-    private HashMap<Integer, Candidato> cacheCandidatos = new HashMap<>();
-    private final String fileName = "candidato.dat";
-
-    public Candidato get(Integer idCandidato) {
-        return cacheCandidatos.get(idCandidato);
+    public Eleitor get(Integer idEleitor) {
+        return cacheEleitores.get(idEleitor);
     }
 
-    public void put(Candidato candidato) {
-        cacheCandidatos.put(candidato.getNumeroCandidato(), candidato);
+    public void put(Eleitor eleitor) {
+        cacheEleitores.put(eleitor.getTituloEleitor(), eleitor);
     }
 
     public void persist() {
@@ -37,7 +40,7 @@ public class CandidatoDAO {
             FileOutputStream fout = new FileOutputStream(fileName);
 
             ObjectOutputStream oo = new ObjectOutputStream(fout);
-            oo.writeObject(cacheCandidatos);
+            oo.writeObject(cacheEleitores);
 
             oo.flush();
             fout.flush();
@@ -49,7 +52,7 @@ public class CandidatoDAO {
             fout = null;
 
         } catch (FileNotFoundException ex) {
-            load();
+            System.out.println(ex);
         } catch (IOException ex) {
             System.out.println(ex);
         }
@@ -62,7 +65,7 @@ public class CandidatoDAO {
             FileInputStream fin = new FileInputStream(fileName);
             ObjectInputStream oi = new ObjectInputStream(fin);
 
-            this.cacheCandidatos = (HashMap<Integer, Candidato>) oi.readObject();
+            this.cacheEleitores = (HashMap<Integer, Eleitor>) oi.readObject();
 
             oi.close();
             fin.close();
@@ -73,11 +76,12 @@ public class CandidatoDAO {
         } catch (ClassNotFoundException ex) {
             System.out.println(ex);
         } catch (FileNotFoundException ex) {
+            persist();
             System.out.println(ex);
         } catch(IOException ex){
             System.out.println(ex);
         }
 
     }
-
+    
 }
