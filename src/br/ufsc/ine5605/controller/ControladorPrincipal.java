@@ -5,6 +5,7 @@ import br.ufsc.ine5605.model.Eleitor;
 import br.ufsc.ine5605.model.Partido;
 import br.ufsc.ine5605.model.Urna;
 import br.ufsc.ine5605.view.TelaApuracao;
+import br.ufsc.ine5605.view.TelaCadastroUrna;
 import br.ufsc.ine5605.view.TelaPrincipalG;
 import java.util.ArrayList;
 
