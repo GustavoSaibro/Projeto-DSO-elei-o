@@ -20,6 +20,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 import br.ufsc.ine5605.controller.ControladorEleitor;
+import br.ufsc.ine5605.controller.ControladorPrincipal;
 import br.ufsc.ine5605.model.Eleitor;
 import java.awt.GridBagConstraints;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
@@ -112,7 +113,7 @@ public class TelaEleitorG extends JFrame{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
-    public void iniciaTelaPrincipal() {        
+    public void iniciaTelaEleitor() {        
         setVisible(true);
     }
 
@@ -128,7 +129,7 @@ public class TelaEleitorG extends JFrame{
             
             switch (opcao) {
                 case "1":
-                                 
+                     ControladorPrincipal.getInstancia().iniciarEleitor();
                     break;
                 case "2":
                    
