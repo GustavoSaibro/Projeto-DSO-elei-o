@@ -61,7 +61,7 @@ public class ControladorUrna {
     public void excluirUrna(int secao) {
         if (findUrnaBySecao(secao).equals(null)) {
         } else {
-            //urnas.remove(findUrnaBySecao(secao));
+            urnaDAO.removeUrna(secao);
             telaUrna.removeuUrna();
         }
 

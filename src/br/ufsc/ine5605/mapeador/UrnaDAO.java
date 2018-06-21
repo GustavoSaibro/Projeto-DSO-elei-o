@@ -94,4 +94,9 @@ public class UrnaDAO implements Serializable {
 
     }
     
+    public void removeUrna(Integer secao){
+        cacheUrnas.remove(secao);
+        persist();
+    }
+    
 }

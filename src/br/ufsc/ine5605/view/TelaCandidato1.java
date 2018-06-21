@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-public class TelaCandidato extends JFrame {
+public class TelaCandidato1 extends JFrame {
     private JLabel label;
     private JButton botao1;
     private JButton botao2;
@@ -18,7 +18,7 @@ public class TelaCandidato extends JFrame {
     private JButton botao4;
         
         
-    public TelaCandidato(){
+    public TelaCandidato1(){
         super("Tela Candidato - IHUUUL");
         
         GerenciadorDeBotao btManager = new GerenciadorDeBotao();

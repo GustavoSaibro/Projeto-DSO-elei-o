@@ -21,6 +21,8 @@ public class Candidato extends Pessoa implements Serializable{
     private int numeroDeVotos;
     private int numeroPartido;
 
+    
+    
     public int getNumeroPartido() {
         return numeroPartido;
     }

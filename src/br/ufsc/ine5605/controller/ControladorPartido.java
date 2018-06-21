@@ -75,8 +75,15 @@ public class ControladorPartido {
         ControladorPrincipal.getInstancia().iniciaSistema();
     }
 
-    ArrayList getPartidos() {
+    public ArrayList getPartidos() {
         return partidos;
+    }
+    public int getNumeroPartidoByNome(String nomePartido){
+       for (int i = 0; i < partidos.size(); i++) {
+            if (partidos.get(i) != null && partidos.get(i).getNomePartido() == nomePartido) {
+                return (partidos.get(i).getNumeroPartido());
+            }
+        } return 0;
     }
 
 }

@@ -126,7 +126,7 @@ public class TelaUrna extends JFrame{
                     ControladorPrincipal.getInstancia().telaCadastroUrna();                    
                     break;
                 case "2":
-                    ControladorPrincipal.getInstancia().iniciarCandidato();
+                    ControladorPrincipal.getInstancia().telaListarUrna();
                     break;
                 default:
                     break;

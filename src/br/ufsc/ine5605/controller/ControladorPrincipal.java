@@ -6,6 +6,7 @@ import br.ufsc.ine5605.model.Partido;
 import br.ufsc.ine5605.model.Urna;
 import br.ufsc.ine5605.view.TelaApuracao;
 import br.ufsc.ine5605.view.TelaCadastroUrna;
+import br.ufsc.ine5605.view.TelaListarUrna;
 import br.ufsc.ine5605.view.TelaPrincipalG;
 import java.util.ArrayList;
 
@@ -15,11 +16,13 @@ public class ControladorPrincipal {
     private TelaApuracao telaApuracao;
     private TelaCadastroUrna telaCadastroUrna;
     private static ControladorPrincipal instanciaPrincipal;
+    private TelaListarUrna telaListarUrna;
 	
     public ControladorPrincipal(){
         telaPrincipal = new TelaPrincipalG();
         telaApuracao = new TelaApuracao();
         telaCadastroUrna = new TelaCadastroUrna();
+        telaListarUrna = new TelaListarUrna();
     }
         
     public static ControladorPrincipal getInstancia(){
@@ -98,6 +101,10 @@ public class ControladorPrincipal {
 
     public void telaCadastroUrna() {
         telaCadastroUrna.iniciarTelaCadastro();
+    }
+
+    public void telaListarUrna() {
+        telaListarUrna.iniciarTelaListarUrna();
     }
     
 }
