@@ -58,6 +58,7 @@ public class TelaUrnaG extends JFrame {
 
     public TelaUrnaG() {
         super("Tela da Urna");
+        iniciaTelaUrna();
     }
 
     public void iniciaTelaUrna() {

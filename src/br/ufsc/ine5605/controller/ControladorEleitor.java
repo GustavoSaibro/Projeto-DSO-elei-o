@@ -4,13 +4,14 @@ import br.ufsc.ine5605.model.Cidade;
 import br.ufsc.ine5605.model.Eleitor;
 import br.ufsc.ine5605.model.Partido;
 import br.ufsc.ine5605.view.TelaEleitor;
+import br.ufsc.ine5605.view.TelaEleitorG;
 import java.util.ArrayList;
 
 public class ControladorEleitor {
 
     private Eleitor eleitor;
     private ArrayList<Eleitor> eleitores;
-    private TelaEleitor telaEleitor;
+    private TelaEleitorG telaEleitor;
     private static ControladorEleitor instanciaEleitor;
 
     public ControladorEleitor() {
@@ -25,7 +26,7 @@ public class ControladorEleitor {
 
     public void iniciaTelaEleitor() {
 
-        telaEleitor.opcoesEleitor();
+        telaEleitor.iniciaTelaEleitor();
     }
 
     public void cadastrarEleitor(String nomeEleitor, int zonaEleitoral, String nomeCidade, int titulo, int secao) {
@@ -55,7 +56,7 @@ public class ControladorEleitor {
                 Eleitor e = eleitores.get(i);               
                 if (eleitores.get(i) != null && eleitor.getTituloEleitor() == e.getTituloEleitor()) {
                     jahTem = true;
-                    telaEleitor.erroDeCadastro();
+                    //telaEleitor.erroDeCadastro();
                     break;
                 } 
             }
@@ -69,7 +70,7 @@ public class ControladorEleitor {
     }
 
     public void ListaEleitores() {
-        telaEleitor.listarEleitor(eleitores);
+       // telaEleitor.listarEleitor(eleitores);
     }
 
     public void excluirEleitorByTitulo(int titulo) {
@@ -77,7 +78,7 @@ public class ControladorEleitor {
 
         } else {
             eleitores.remove(findEleitorByTitulo(titulo));
-            telaEleitor.removeu();
+            //telaEleitor.removeu();
         }
         ListaEleitores();
     }

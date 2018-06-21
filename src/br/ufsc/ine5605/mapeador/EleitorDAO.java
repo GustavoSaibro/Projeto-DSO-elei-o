@@ -20,10 +20,15 @@ import java.util.HashMap;
  *
  * @author Gustavo Saibro
  */
-public class EleitorDAO implements Serializable {
+public class EleitorDAO{
     
      private HashMap<Integer, Eleitor> cacheEleitores = new HashMap<>();
+     private static EleitorDAO instancia = new EleitorDAO();
     private final String fileName = "eleitor.dat";
+    
+    public EleitorDAO(){
+        load();
+    }
 
     public Eleitor get(Integer idEleitor) {
         return cacheEleitores.get(idEleitor);
@@ -81,7 +86,13 @@ public class EleitorDAO implements Serializable {
         } catch(IOException ex){
             System.out.println(ex);
         }
-
+    }
+    
+    public static EleitorDAO getInstancia(){
+        if(instancia == null){
+            instancia = new EleitorDAO();
+        }        
+        return instancia;
     }
     
 }
