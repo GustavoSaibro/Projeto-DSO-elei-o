@@ -23,6 +23,8 @@ public class Eleitor extends Pessoa implements Serializable{
     public int getSecao() {
         return secao;
     }
+    
+    
 
     public void setSecao(int secao) {
         this.secao = secao;
