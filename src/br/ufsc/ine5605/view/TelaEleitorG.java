@@ -119,15 +119,14 @@ public class TelaEleitorG extends JFrame {
             String opcao = ae.getActionCommand();
 
             switch (opcao) {
-                case "1":
-                    
-                    ControladorPrincipal.getInstancia().iniciarEleitor();
+                case "1":                    
+                    ControladorPrincipal.getInstancia().telaCadastroEleitor();
                     break;
                 case "2":
 
                     break;
                 case "3":
-
+                    ControladorPrincipal.getInstancia().telaListaEleitor();
                     break;
 
                 default:

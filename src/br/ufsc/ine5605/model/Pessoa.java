@@ -20,9 +20,8 @@ public abstract class Pessoa {
         
     }
 
-    public Pessoa(String nomePessoa, int zonaEleitoral, Cidade cidade, int tituloEleitor) {
+    public Pessoa(String nomePessoa, Cidade cidade, int tituloEleitor) {
         this.nomePessoa = nomePessoa;
-        this.zonaEleitoral = zonaEleitoral;
         this.cidade = cidade;
         this.tituloEleitor = tituloEleitor;
     }

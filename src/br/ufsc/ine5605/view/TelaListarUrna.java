@@ -97,7 +97,6 @@ public class TelaListarUrna extends JFrame{
         public void actionPerformed(ActionEvent e) {
             secao = txtSecao.getText();
             ControladorUrna.getInstancia().excluirUrna(Integer.parseInt(secao));
-            
         }
     }
 }

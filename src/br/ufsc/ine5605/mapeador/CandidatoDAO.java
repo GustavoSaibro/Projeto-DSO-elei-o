@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,6 +44,7 @@ public class CandidatoDAO {
     
     public void put(Candidato candidato){
         cacheCandidatos.put(candidato.getNumeroCandidato(), candidato);
+        persist();
     }
 
     public void persist(){
@@ -89,5 +91,9 @@ public class CandidatoDAO {
         } catch(ClassNotFoundException ex){
             System.out.println(ex);
         }
+    }
+    
+    public Collection<Candidato> getCandidato(){
+        return cacheCandidatos.values();
     }
 }

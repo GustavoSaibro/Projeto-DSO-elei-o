@@ -1,5 +1,6 @@
 package br.ufsc.ine5605.controller;
 
+import br.ufsc.ine5605.mapeador.CandidatoDAO;
 import br.ufsc.ine5605.model.Candidato;
 import br.ufsc.ine5605.model.Partido;
 import br.ufsc.ine5605.view.TelaCadastroCandidato;
@@ -9,14 +10,14 @@ import br.ufsc.ine5605.view.TelaListaCandidato;
 import java.util.ArrayList;
 
 public class ControladorCandidato {
-    private ArrayList<Candidato> candidatos;
+    private CandidatoDAO candidatoDAO;
     private Candidato candidato;
     private TelaCandidato telaCandidato;
     private static ControladorCandidato instanciaCandidato;
    
     private ControladorCandidato(){
         telaCandidato = new TelaCandidato();
-        candidatos = new ArrayList<>();
+        candidatoDAO = new CandidatoDAO();
     }
     
     public static ControladorCandidato getInstancia(){
@@ -34,8 +35,8 @@ public class ControladorCandidato {
     
     public void cadastrarCandidato(int numeroCandidato, String nomeCandidato){
         boolean naoTem = true;
-        for(int i = 0; i < candidatos.size(); i++){
-            if(candidatos.get(i).getNumeroCandidato() == numeroCandidato){
+        for(int i = 0; i < getCandidato().size(); i++){
+            if(getCandidato().get(i).getNumeroCandidato() == numeroCandidato){
                 //DAR AVISO QUE JÁ TEM
                 naoTem = false;
             }else{
@@ -46,9 +47,7 @@ public class ControladorCandidato {
             candidato = new Candidato();
             candidato.setNumeroCandidato(numeroCandidato);
             candidato.setNomePessoa(nomeCandidato);
-            candidatos.add(candidato);
-            System.out.println(nomeCandidato);
-            System.out.println(numeroCandidato);
+            candidatoDAO.put(candidato);
         }
     }
 
@@ -57,9 +56,9 @@ public class ControladorCandidato {
     }
     
     public void excluirCandidato(int numeroCandidato){
-        for(int i = 0; i < candidatos.size(); i++){
-            if(candidatos.get(i) != null && candidatos.get(i).getNumeroCandidato() == numeroCandidato){
-                candidatos.remove(candidatos.get(i));
+        for(int i = 0; i < getCandidato().size(); i++){
+            if(getCandidato().get(i) != null && getCandidato().get(i).getNumeroCandidato() == numeroCandidato){
+                getCandidato().remove(getCandidato().get(i));
             }
         }
     }
@@ -69,9 +68,9 @@ public class ControladorCandidato {
     }
 
     public Candidato findCandidatoByNumero(int numeroCandidato){
-        for(int i = 0; i < candidatos.size(); i++){
-            if(candidatos.get(i) != null && candidatos.get(i).getNumeroCandidato() == numeroCandidato){
-                candidato = candidatos.get(i);
+        for(int i = 0; i < getCandidato().size(); i++){
+            if(getCandidato().get(i) != null && getCandidato().get(i).getNumeroCandidato() == numeroCandidato){
+                candidato = getCandidato().get(i);
                 return candidato;
             }
         }
@@ -79,7 +78,7 @@ public class ControladorCandidato {
     }
     
     public ArrayList getCandidatos(){
-        return candidatos;
+        return getCandidato();
     }
 
     public void abrirTelaCandidato(){
@@ -96,5 +95,8 @@ public class ControladorCandidato {
     
     public void abrirTelaListaCandidato(){
         TelaListaCandidato telaListaCandidato = new TelaListaCandidato();
+    }
+    public ArrayList<Candidato> getCandidato(){
+        return new ArrayList<Candidato>(candidatoDAO.getCandidato());
     }
 }

@@ -1,5 +1,6 @@
 package br.ufsc.ine5605.controller;
 
+import br.ufsc.ine5605.mapeador.VotacaoDAO;
 import br.ufsc.ine5605.model.Candidato;
 import br.ufsc.ine5605.model.Cargo;
 import br.ufsc.ine5605.model.Cidade;
@@ -15,12 +16,12 @@ public class ControladorVotacao {
     private TelaVotacao telaVotacao;
     private ArrayList<Urna> urnas;
     private Voto voto;
-    private ArrayList<Voto> votos;
+    private VotacaoDAO votacaoDAO;
     private static ControladorVotacao instanciaVotacao;
     
     public ControladorVotacao() {
         this.telaVotacao = new TelaVotacao();        
-        votos = new ArrayList<>();
+        this.votacaoDAO = new VotacaoDAO();
     }
     
     public static ControladorVotacao getInstancia(){
@@ -35,23 +36,13 @@ public class ControladorVotacao {
     }
     
     public void votar(int titulo, int numeroCandidato, int secaoEleitoral, Cargo cargo){
-        boolean achouVoto = false;
-        for (int i = 0; i < votos.size(); i++) {
-            if (votos.get(i).getCandidato().getNumeroCandidato() == numeroCandidato) {
-                votos.get(i).getCandidato().setNumeroDeVotos(votos.get(i).getCandidato().getNumeroDeVotos() + 1);
-                achouVoto = true;
-            }
-        }
-        if (!achouVoto) {
-            voto = new Voto();
-            voto.setCandidato(ControladorPrincipal.getInstancia().findCandidatoByNumero(numeroCandidato));
-            voto.getCandidato().setNumeroDeVotos(voto.getCandidato().getNumeroDeVotos() + 1);
-            voto.setEleitor(ControladorPrincipal.getInstancia().findEleitorByTitulo(titulo));
-            voto.setUrna(ControladorPrincipal.getInstancia().findUrnaBySecao(secaoEleitoral));
-            voto.setCargo(cargo);
-            votos.add(voto);
-        }
+        voto = new Voto();
+        voto.setCandidato(ControladorCandidato.getInstancia().findCandidatoByNumero(numeroCandidato));
+        voto.setCargo(cargo);
+        voto.setEleitor(ControladorEleitor.getInstancia().findEleitorByTitulo(titulo));
+        voto.setUrna(ControladorUrna.getInstancia().findUrnaBySecao(secaoEleitoral));
        
+        votacaoDAO.put(voto);
        
      }
 
@@ -69,9 +60,9 @@ public class ControladorVotacao {
     
     public void findVotosByUrna(Urna u){
         List<Voto> votosDaUrna = new ArrayList<>();
-        for (int i = 0; i < votos.size(); i++) {
-            if (votos.get(i).getUrna().equals(u)) {
-                votosDaUrna.add(votos.get(i));
+        for (int i = 0; i < getVoto().size(); i++) {
+            if (getVoto().get(i).getUrna().equals(u)) {
+                votosDaUrna.add(getVoto().get(i));
             }
         }
         
@@ -81,15 +72,17 @@ public class ControladorVotacao {
     void findVotosByCidade(ArrayList<Urna> urnasDaCidade) {
         List<Voto> votosdasUrnas = new ArrayList<>();
         for (int i = 0; i < urnasDaCidade.size(); i++) {
-            for (int j = 0; j < votos.size(); j++) {
-                if (votos.get(i).getUrna().equals(urnasDaCidade.get(j))) {
-                    votosdasUrnas.add(votos.get(i));
+            for (int j = 0; j < getVoto().size(); j++) {
+                if (getVoto().get(i).getUrna().equals(urnasDaCidade.get(j))) {
+                    votosdasUrnas.add(getVoto().get(i));
                 }
             }
         }
         telaVotacao.listarVotos(votosdasUrnas);
     }
     
-    
+    public ArrayList<Voto> getVoto(){
+        return new ArrayList<Voto>(votacaoDAO.getVoto());
+    }
     
 }

@@ -6,6 +6,7 @@
 package br.ufsc.ine5605.view;
 
 import br.ufsc.ine5605.controller.ControladorEleitor;
+import br.ufsc.ine5605.controller.ControladorPrincipal;
 import br.ufsc.ine5605.model.Eleitor;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
@@ -22,99 +23,64 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author Gustavo Saibro
+ * @author José Felipe
  */
 public class TelaCadastroEleitor extends JFrame {
 
-    private Eleitor eleitor;
-    private ArrayList eleitores;
-    private JButton botao1;
-    private JButton botao2;
-    private JLabel label;
-    private JLabel labe1;
-    private JLabel labe2;
-    private JLabel labe3;
-    private JLabel labe4;
-    private JTextField text1;
-    private JTextField text2;
-    private JTextField text3;
-    private JTextField text4;
-    private JTextField text5;
+    private JButton btnCadastrar;
+    private JLabel lblNomeEleitor;
+    private JLabel lblTitulo;
+    private JLabel lblSecao;
+    private JTextField txtNomeEleitor;
+    private JTextField txtTitulo;
+    private JTextField txtSecao;
 
-    public TelaCadastroEleitor() {
+    public TelaCadastroEleitor(){
 
         Container container = getContentPane();
-        container.setLayout(null);
+        container.setLayout(new GridBagLayout());
         TelaCadastroEleitor.GerenciadorDeBotao btManager;
-        btManager = new TelaCadastroEleitor.GerenciadorDeBotao();
         GridBagConstraints bgc = new GridBagConstraints();
 
-        label = new JLabel();
-        label.setName("Cadastro do eleitor:");
-        label.setBounds(145, 10, 200, 50);
-
-        eleitores = new ArrayList();
-        eleitores = ControladorEleitor.getInstancia().getEleitores();
-
-        labe1 = new JLabel();
-        labe1.setName("Cadastro do eleitor:");
-        labe1.setBounds(58, 98, 200, 50);
-
-        text1 = new JTextField();
-        text1.setBounds(55, 95, 250, 25);
-
-        labe2 = new JLabel();
-        labe2.setName("Cadastro do eleitor:");
-        labe2.setBounds(68, 108, 200, 50);
-
-        text2 = new JTextField();
-        text2.setBounds(65, 105, 250, 25);
-
-        labe3 = new JLabel();
-        labe3.setName("Cadastro do eleitor:");
-        labe3.setBounds(78, 118, 200, 50);
-
-        text3 = new JTextField();
-        text3.setBounds(75, 115, 250, 25);
-
-        labe4 = new JLabel();
-        labe4.setName("Cadastro do eleitor:");
-        labe4.setBounds(88, 128, 200, 50);
-
-        text4 = new JTextField();
-        text4.setBounds(85, 125, 250, 25);
+        lblNomeEleitor = new JLabel("Nome do eleitor: ");
+        bgc.gridx = 0;
+        bgc.gridy = 0;
+        container.add(lblNomeEleitor, bgc);
         
+        txtNomeEleitor = new JTextField("Digite o nome do eleitor");
+        bgc.gridx = 1;
+        bgc.gridy = 0;
+        container.add(txtNomeEleitor, bgc);
         
+        lblTitulo = new JLabel("Título de eleitor: ");
+        bgc.gridx = 0;
+        bgc.gridy = 1;
+        container.add(lblTitulo, bgc);
         
-        botao1 = new JButton();
-        botao1.setBounds(75, 160, 250, 40);
+        txtTitulo = new JTextField("Digite o título de eleitor");
+        bgc.gridx = 1;
+        bgc.gridy = 1;
+        container.add(txtTitulo, bgc);
         
+        lblSecao = new JLabel("Seção: ");
+        bgc.gridx = 0;
+        bgc.gridy = 2;
+        container.add(lblSecao, bgc);
         
-        botao2 = new JButton();
-        botao2.setBounds(75, 210, 250, 40);
+        txtSecao = new JTextField("Digite a seção eleitoral");
+        bgc.gridx = 1;
+        bgc.gridy = 2;
+        container.add(txtSecao, bgc);
         
-        botao1.setActionCommand("1");
-        botao2.setActionCommand("2");        
-        
-
-        container.add(label);
-        container.add(labe1);
-        container.add(labe2);
-        container.add(labe3);
-        container.add(labe4);
-        container.add(botao1);
-        container.add(botao2);
-        container.add(text1);
-        container.add(text2);
-        container.add(text3);
-        container.add(text4);
-        container.add(text5);
-        
-        botao1.addActionListener(btManager);
-        botao2.addActionListener(btManager);
+        btnCadastrar = new JButton("Cadastrar");
+        bgc.gridwidth = 2;
+        bgc.gridx = 0;
+        bgc.gridy = 3;
+        btnCadastrar.addActionListener(new GerenciadorDeBotao(txtNomeEleitor, txtTitulo, txtSecao));
+        container.add(btnCadastrar, bgc);
+       
         
         setSize(400 , 300);
-        setVisible(true);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
@@ -122,28 +88,33 @@ public class TelaCadastroEleitor extends JFrame {
         
 
     }
+    
+    public void iniciarTelaCadastro(){
+        setVisible(true);
+    }
 
     private class GerenciadorDeBotao implements ActionListener {
+        private JTextField txtNomeEleitor;
+        private JTextField txtTitulo;
+        private JTextField txtSecao;
+        String nomeEleitor;
+        String titulo;
+        String secao;
+
+        public GerenciadorDeBotao(JTextField txtNomeEleitor, JTextField txtTitulo, JTextField txtSecao) {
+            this.txtNomeEleitor = txtNomeEleitor;
+            this.txtTitulo = txtTitulo;
+            this.txtSecao = txtSecao;
+        }
+        
+        
 
         @Override
         public void actionPerformed(ActionEvent ae) {
-            String opcao = ae.getActionCommand();
-
-            switch (opcao) {
-                case "1":
-                    try {
-
-                      
-                    } catch (Exception e) {
-
-                    }
-                    break;
-                case "2":
-
-                    break;
-                default:
-                    break;
-            }
+           nomeEleitor = txtNomeEleitor.getText();
+           titulo = txtTitulo.getText();
+           secao = txtSecao.getText();
+            ControladorEleitor.getInstancia().cadastrarEleitor(nomeEleitor, "florianopolis", Integer.parseInt(titulo), Integer.parseInt(secao));
         }
 
     }

@@ -1,20 +1,21 @@
 package br.ufsc.ine5605.controller;
 
+import br.ufsc.ine5605.mapeador.EleitorDAO;
 import br.ufsc.ine5605.model.Cidade;
 import br.ufsc.ine5605.model.Eleitor;
 import br.ufsc.ine5605.model.Partido;
-import br.ufsc.ine5605.view.TelaEleitor;
 import br.ufsc.ine5605.view.TelaEleitorG;
 import java.util.ArrayList;
 
 public class ControladorEleitor {
 
     private Eleitor eleitor;
-    private ArrayList<Eleitor> eleitores;
+    private EleitorDAO eleitorDAO;
     private TelaEleitorG telaEleitor;
     private static ControladorEleitor instanciaEleitor;
 
     public ControladorEleitor() {
+        eleitorDAO = new EleitorDAO();
     }
     
     public static ControladorEleitor getInstancia(){
@@ -29,7 +30,7 @@ public class ControladorEleitor {
         telaEleitor = new TelaEleitorG();
     }
 
-    public void cadastrarEleitor(String nomeEleitor, int zonaEleitoral, String nomeCidade, int titulo, int secao) {
+    public void cadastrarEleitor(String nomeEleitor, String nomeCidade, int titulo, int secao) {
         
         boolean jahTem = false;
         
@@ -41,20 +42,20 @@ public class ControladorEleitor {
         // CRIA UMA NOVA CIDADE
         Cidade c = new Cidade();
         c.setNome(nomeCidade);
+        System.out.print(nomeEleitor);
+        eleitor = new Eleitor(nomeEleitor, c, titulo, secao);
 
-        eleitor = new Eleitor(nomeEleitor, zonaEleitoral, c, titulo, secao);
-
-        if (eleitores.size() == 0) {
-            eleitores.add(eleitor);
+        if (getEleitor().size() == 0) {
+            eleitorDAO.put(eleitor);
         } else {
 
             //aqui percorro o array de eleitores verificando caso tenha um mesmo titulo cadastrado, caso tenha aparece mensagem de erro.
         
             
             
-            for (int i = 0; i < eleitores.size(); i++) {
-                Eleitor e = eleitores.get(i);               
-                if (eleitores.get(i) != null && eleitor.getTituloEleitor() == e.getTituloEleitor()) {
+            for (int i = 0; i < getEleitor().size(); i++) {
+                Eleitor e = getEleitor().get(i);               
+                if (getEleitor().get(i) != null && eleitor.getTituloEleitor() == e.getTituloEleitor()) {
                     jahTem = true;
                     //telaEleitor.erroDeCadastro();
                     break;
@@ -62,11 +63,15 @@ public class ControladorEleitor {
             }
             
               if (jahTem == false) {
-                        eleitores.add(eleitor);                       
-                    }
+                  eleitorDAO.put(eleitor);
+              }
         }
 
         ListaEleitores();
+    }
+    
+    public ArrayList<Eleitor> getEleitor(){
+        return new ArrayList<Eleitor>(eleitorDAO.getEleitor());
     }
 
     public void ListaEleitores() {
@@ -74,19 +79,16 @@ public class ControladorEleitor {
     }
 
     public void excluirEleitorByTitulo(int titulo) {
-        if (findEleitorByTitulo(titulo).equals(null)) {
 
-        } else {
-            eleitores.remove(findEleitorByTitulo(titulo));
+            eleitorDAO.removeEleitor(titulo);
             //telaEleitor.removeu();
-        }
-        ListaEleitores();
+        
     }
 
     public Eleitor findEleitorByTitulo(int titulo) {
-        for (int i = 0; i < eleitores.size(); i++) {
-            if (eleitores.get(i) != null && eleitores.get(i).getTituloEleitor() == titulo) {
-                eleitor = eleitores.get(i);
+        for (int i = 0; i < getEleitor().size(); i++) {
+            if (getEleitor().get(i) != null && getEleitor().get(i).getTituloEleitor() == titulo) {
+                eleitor = getEleitor().get(i);
             }
         }
         return eleitor;
@@ -98,6 +100,6 @@ public class ControladorEleitor {
     }
 
    public  ArrayList getEleitores() {
-        return eleitores;
+        return getEleitor();
     }
 }

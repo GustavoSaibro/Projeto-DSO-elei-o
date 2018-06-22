@@ -15,8 +15,8 @@ public class Eleitor extends Pessoa implements Serializable{
     
     private int secao;
     
-    public Eleitor(String nomePessoa, int zonaEleitoral, Cidade cidade, int tituloEleitor, int secao) {
-        super(nomePessoa, zonaEleitoral, cidade, tituloEleitor);
+    public Eleitor(String nomePessoa, Cidade cidade, int tituloEleitor, int secao) {
+        super(nomePessoa, cidade, tituloEleitor);
         this.secao = secao;
     }
 
