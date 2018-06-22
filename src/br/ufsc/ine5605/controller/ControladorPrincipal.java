@@ -67,7 +67,7 @@ public class ControladorPrincipal {
     }
         
     public void iniciarTelaApuracao(){
-        telaApuracao.opcoesApuracao();
+        telaApuracao = new TelaApuracao();
     }
 
     public void listarPartido() {

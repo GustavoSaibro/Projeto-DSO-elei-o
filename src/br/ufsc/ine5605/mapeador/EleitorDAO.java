@@ -16,6 +16,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashMap;
+import Exceção.ArquivoNaoAchadoExcecao;
 
 /**
  *
@@ -26,6 +27,7 @@ public class EleitorDAO{
      private HashMap<Integer, Eleitor> cacheEleitores = new HashMap<>();
      private static EleitorDAO instancia = new EleitorDAO();
     private final String fileName = "eleitor.dat";
+    
     
     public EleitorDAO(){
         load();

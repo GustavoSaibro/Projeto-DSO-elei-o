@@ -10,6 +10,7 @@ import br.ufsc.ine5605.model.Voto;
 import br.ufsc.ine5605.view.TelaVotacao;
 import java.util.ArrayList;
 import java.util.List;
+import br.ufsc.ine5605.controller.ControladorCandidato;
 
 public class ControladorVotacao {
 
@@ -18,6 +19,8 @@ public class ControladorVotacao {
     private Voto voto;
     private VotacaoDAO votacaoDAO;
     private static ControladorVotacao instanciaVotacao;
+   
+    
     
     public ControladorVotacao() {
         this.telaVotacao = new TelaVotacao();        
@@ -45,6 +48,9 @@ public class ControladorVotacao {
         votacaoDAO.put(voto);
        
      }
+ 
+    
+    
 
     public void listarCandidato() {
         ControladorPrincipal.getInstancia().listarCandidato();
