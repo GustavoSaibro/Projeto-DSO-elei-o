@@ -102,7 +102,7 @@ public class TelaCadastroCandidato extends JFrame{
         
         setSize(400 , 300);
         setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
     }

@@ -5,7 +5,6 @@
  */
 package br.ufsc.ine5605.view;
 
-
 import java.awt.Container;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
@@ -24,32 +23,28 @@ import br.ufsc.ine5605.controller.ControladorPrincipal;
 import br.ufsc.ine5605.model.Eleitor;
 import java.awt.GridBagConstraints;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Gustavo Saibro
  */
-public class TelaEleitorG extends JFrame{
-    
-     private JLabel label;
+public class TelaEleitorG extends JFrame {
+
+    private JLabel label;
     private JButton botao1;
     private JButton botao2;
     private JButton botao3;
- 
- 
 
     private final static boolean shouldFill = true;
     private final static boolean shouldWeightX = true;
     private final static boolean RIGHT_TO_LEFT = false;
 
-
-    
-
     public TelaEleitorG() {
         super("Tela Eleitor");
         Container container = getContentPane();
         container.setLayout(new GridBagLayout());
-        GerenciadorDeBotao btManager;        
+        GerenciadorDeBotao btManager;
         btManager = new GerenciadorDeBotao();
 
         GridBagConstraints bgc = new GridBagConstraints();
@@ -85,36 +80,32 @@ public class TelaEleitorG extends JFrame{
         bgc.gridy = 2;
         container.add(botao3, bgc);
 
-      
-      
         botao1.setText("Cadastrar Eleitor");
         botao2.setText("Excluir Eleitor");
         botao3.setText("Listar Eleitores");
-       
 
-      
         setSize(500, 250);
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         botao1.addActionListener(btManager);
 
         botao1.setActionCommand("1");
         botao2.setActionCommand("2");
         botao3.setActionCommand("3");
-     
-       
 
         botao1.addActionListener(btManager);
         botao2.addActionListener(btManager);
         botao3.addActionListener(btManager);
-      
-    
-
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setVisible(true);
+        
     }
 
-    public void iniciaTelaEleitor() {        
-        setVisible(true);
+   
+    
+    public void cadastroEleitor(){
+        
+        
     }
 
     /**
@@ -124,20 +115,21 @@ public class TelaEleitorG extends JFrame{
     private class GerenciadorDeBotao implements ActionListener {
 
         @Override
-        public void actionPerformed(ActionEvent ae) {            
+        public void actionPerformed(ActionEvent ae) {
             String opcao = ae.getActionCommand();
-            
+
             switch (opcao) {
                 case "1":
-                     ControladorPrincipal.getInstancia().iniciarEleitor();
+                    
+                    ControladorPrincipal.getInstancia().iniciarEleitor();
                     break;
                 case "2":
-                   
+
                     break;
                 case "3":
-                    
+
                     break;
-              
+
                 default:
                     break;
             }
@@ -145,5 +137,5 @@ public class TelaEleitorG extends JFrame{
         }
 
     }
-    
+
 }

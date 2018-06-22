@@ -26,7 +26,7 @@ public class ControladorEleitor {
 
     public void iniciaTelaEleitor() {
 
-        telaEleitor.iniciaTelaEleitor();
+        telaEleitor = new TelaEleitorG();
     }
 
     public void cadastrarEleitor(String nomeEleitor, int zonaEleitoral, String nomeCidade, int titulo, int secao) {
@@ -97,7 +97,7 @@ public class ControladorEleitor {
 
     }
 
-    ArrayList getEleitores() {
+   public  ArrayList getEleitores() {
         return eleitores;
     }
 }

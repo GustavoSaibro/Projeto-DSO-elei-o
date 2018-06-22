@@ -53,6 +53,7 @@ public class TelaPrincipalG extends JFrame {
 
         label = new JLabel();
         label.setName("Opções:");
+        label.setBounds(145, 10, 200, 50);
         container.add(label);
 
         if (shouldFill) {
