@@ -52,8 +52,8 @@ public class TelaApuracaoG extends JFrame{
         
         botao1.setActionCommand("1");
         botao1.addActionListener(btManager);
-        
-        setVisible(true);
+         setVisible(true);
+       
 
         
         
