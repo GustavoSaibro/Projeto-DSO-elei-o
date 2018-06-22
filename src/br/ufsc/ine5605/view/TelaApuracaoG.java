@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package br.ufsc.ine5605.view;
-import br.ufsc.ine5605.controller.ControladorPrincipal;
-
 
 
 import java.awt.Container;
@@ -22,44 +20,38 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Felipe
+ * @author Gustavo Saibro
  */
-public class TelaApuracao extends JFrame{
+public class TelaApuracaoG extends JFrame{
     
+ 
    private JButton botao1; 
-   private JLabel label;
     
-    public TelaApuracao() {
+    public TelaApuracaoG() {
        super("Tela de apuração");
        
-        TelaApuracao.GerenciadorDeBotao btManager = new TelaApuracao.GerenciadorDeBotao();
+        TelaApuracaoG.GerenciadorDeBotao btManager = new TelaApuracaoG.GerenciadorDeBotao();
         
         Container container = getContentPane();
         container.setLayout(new FlowLayout());
         GridBagConstraints bgc = new GridBagConstraints();
          
-        label = new JLabel();
-        label.setName("Opções:");
-        label.setBounds(145, 10, 200, 50);
-        container.add(label);
         
-        botao1 = new JButton();
-        botao1.setText("Apurar");
-        botao1.setActionCommand("1");
-        botao1.addActionListener(btManager);
-        botao1.setBounds(450, 210, 250, 250);
+        botao1 = new JButton();       
+        bgc.fill = GridBagConstraints.HORIZONTAL;
+        bgc.gridx = 2;
+        bgc.gridy = 1;
         container.add(botao1, bgc);
-        
-        
        
-        
+        botao1.setText("Apurar");
        
         
         setSize(500, 250);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
-       
+        botao1.setActionCommand("1");
+        botao1.addActionListener(btManager);
         
         setVisible(true);
 
@@ -83,6 +75,9 @@ public class TelaApuracao extends JFrame{
         }
 
     }
-    
-    
+   
+   
+   
+   
+   
 }

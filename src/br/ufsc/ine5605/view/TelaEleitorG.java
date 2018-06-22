@@ -36,9 +36,6 @@ public class TelaEleitorG extends JFrame {
     private JButton botao2;
     private JButton botao3;
 
-    private final static boolean shouldFill = true;
-    private final static boolean shouldWeightX = true;
-    private final static boolean RIGHT_TO_LEFT = false;
 
     public TelaEleitorG() {
         super("Tela Eleitor");
@@ -53,15 +50,11 @@ public class TelaEleitorG extends JFrame {
         label.setName("Opções:");
         container.add(label);
 
-        if (shouldFill) {
-            bgc.fill = GridBagConstraints.HORIZONTAL;
-        }
+       
 
-        //label.setText("Menu de opções:");
+      
         botao1 = new JButton();
-        if (shouldWeightX) {
-            bgc.weightx = 0.5;
-        }
+       
         bgc.fill = GridBagConstraints.HORIZONTAL;
         bgc.gridx = 0;
         bgc.gridy = 0;
